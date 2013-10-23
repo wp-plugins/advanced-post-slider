@@ -1,7 +1,7 @@
 ﻿=== Advanced post slider ===
 Contributors: digontoahsan
 Donate link: 
-Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow
+Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow, posts, post, image, image slideshow
 Requires at least: 3.0.1
 Tested up to: 3.6.1
 Stable tag: 1.0
@@ -46,7 +46,13 @@ Manual
 2. Upload the directory "advanced-post-slider" to your wp-content/plugins/ directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Check the "Adv. Slider" Tab created by this plugins for manage options
-5. Use shortcode [advps-slideshow optset="optset ID"] where optset ID is the id of the option set. You will get the id of optoin set at the right top corner of each option set from admin panel.
+
+Use shortcode [advps-slideshow optset="optset ID"] at admin panel post/page edit screen where optset ID is the id of the option set. You will get the id of optoin set at the top right corner of each option set from admin panel.
+
+Use WordPress function "do_shortcode" for use in template or theme PHP file.
+`<?php echo do_shortcode( '[advps-slideshow optset="1"]' ); ?>`
+
+<iframe width="480" height="360" src="//www.youtube.com/embed/lhmpS1I3KCs" frameborder="0" allowfullscreen></iframe>
 
 == Frequently Asked Questions ==
 
