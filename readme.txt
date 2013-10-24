@@ -1,7 +1,7 @@
 ﻿=== Advanced post slider ===
 Contributors: digontoahsan
 Donate link: 
-Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow, posts, post, image, image slideshow
+Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow, posts, post, image slideshow
 Requires at least: 3.0.1
 Tested up to: 3.6.1
 Stable tag: 1.0
@@ -52,7 +52,7 @@ Use shortcode [advps-slideshow optset="optset ID"] at admin panel post/page edit
 Use WordPress function "do_shortcode" for use in template or theme PHP file.
 `<?php echo do_shortcode( '[advps-slideshow optset="1"]' ); ?>`
 
-<iframe width="480" height="360" src="//www.youtube.com/embed/lhmpS1I3KCs" frameborder="0" allowfullscreen></iframe>
+Watch this <a href="http://www.youtube.com/watch?v=lhmpS1I3KCs" target="_blank">video</a> for 
 
 == Frequently Asked Questions ==
 
