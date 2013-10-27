@@ -3,7 +3,7 @@ Contributors: digontoahsan
 Donate link: 
 Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow, posts, post, image, image slideshow
 Requires at least: 3.0.1
-Tested up to: 3.6.1
+Tested up to: 3.7
 Stable tag: 1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -52,7 +52,7 @@ Use shortcode [advps-slideshow optset="optset ID"] at admin panel post/page edit
 Use WordPress function "do_shortcode" for use in template or theme PHP file.
 `<?php echo do_shortcode( '[advps-slideshow optset="1"]' ); ?>`
 
-<iframe width="480" height="360" src="//www.youtube.com/embed/lhmpS1I3KCs" frameborder="0" allowfullscreen></iframe>
+Watch this <a href="https://www.youtube.com/watch?v=5OcqO8Wmrhs" target="_blank">video</a> for installation and quick overview.
 
 == Frequently Asked Questions ==
 
