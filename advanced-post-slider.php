@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Advanced post slider is a slideshow plugin powered with three built-in templates, lots of effect, easy customizable options and many more to explore.
-	Version: 1.0
+	Version: 1.1
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -74,7 +74,8 @@
 			"advps_overlay_color" => "#000000", 
 			"advps_overlay_opacity" => "0.6", 
 			"advps_text_opacity" => "1", 
-			"advps_titleFcolor" => "#FFFFFF", 
+			"advps_ttitle_tag" => "h2",
+			"advps_titleFcolor" => "#FFFFFF",
 			"advps_titleHcolor" => "#E6E6E6", 
 			"advps_titleFsize" => "22", 
 			"advps_excptFcolor" => "#FFFFFF", 
@@ -84,6 +85,7 @@
 			"advps_excpt_position" => "left",
 			"advps_ed_link" => "enable",
 			"advps_link_type" => "permalink",
+			"advps_link_target" => "_self",
 			"advps_exclude_pager" => "no",
 			"advps_pager_type" => "bullet",
 			"advps_pager_right" => "8",
@@ -113,6 +115,7 @@
 			"advps_imagemar" => "10",
 			"advps_ed_link" => "enable",
 			"advps_link_type" => "permalink",
+			"advps_link_target" => "_self",
 			"advps_exclude_pager" => "no",
 			"advps_pager_type" => "bullet",
 			"advps_pager_right" => "8",
@@ -140,6 +143,7 @@
 			"advps_bxshadcolor" => "#000000",
 			"advps_remove_shd" => "no",
 			"advps_cont_width" => "280",
+			"advps_ttitle_tag" => "h2",
 			"advps_titleFcolor" => "#000000", 
 			"advps_titleHcolor" => "#E6E6E6", 
 			"advps_titleFsize" => "22", 
@@ -148,6 +152,7 @@
 			"advps_excerptlen" => "30",
 			"advps_ed_link" => "enable",
 			"advps_link_type" => "permalink",
+			"advps_link_target" => "_self",
 			"advps_exclude_pager" => "no",
 			"advps_pager_type" => "bullet",
 			"advps_pager_right" => "8",
@@ -332,7 +337,7 @@
 		}
 		else return;
 		
-		if($optset['advps_exclude']){
+		/*if($optset['advps_exclude']){
 			$exclude = explode(',',$optset['advps_exclude']);
 			if(!in_array($current,$exclude)){
 				$exclude[] = $current;
@@ -341,7 +346,7 @@
 		else
 		{
 			$exclude[] = $current;
-		}
+		}*/
 		
 		$query_arg = array(
 			'post_type' 	 => ($optset['advps_post_types']) ? $optset['advps_post_types'] : 'post',
@@ -476,7 +481,7 @@
 	}
 	?>
     <div class="advps-slide" style="width:<?php if(isset($th_width)){echo $th_width;}?>px; height:<?php if(isset($th_height)){echo $th_height;}?>px;">
-	<?php if( $optset['advps_ed_link']=='enable'){?><a target="_blank" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>"><?php }?>
+	<?php if( $optset['advps_ed_link']=='enable'){?><a target="<?php echo $optset['advps_link_target'];?>" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>"><?php }?>
       <?php 
 	  		if(has_post_thumbnail()){the_post_thumbnail($optset['advps_thumbnail']);}
 	  ?>
@@ -485,14 +490,14 @@
       <div class="advps-excerpt-<?php echo $template?>" style="width:<?php echo $optset['advps_overlay_width'];?>%;height:<?php echo  $optset['advps_overlay_height'];?>%;<?php if($optset['advps_excpt_visibility'] == 'show on hover'){?>display:none;<?php }if($optset['advps_excpt_position'] == 'left'){?>top:0; left:0;<?php }elseif($optset['advps_excpt_position'] == 'right'){?>top:0; right:0;<?php }elseif($optset['advps_excpt_position'] == 'bottom'){?>bottom:0; left:0;<?php }?>">
       	<div class="advps-overlay-<?php echo $template?>" style="background-color:<?php echo $optset['advps_overlay_color'];?>; -moz-opacity:<?php echo $optset['advps_overlay_opacity'];?>;filter:alpha(opacity=<?php echo $optset['advps_overlay_opacity']*100;?>);opacity:<?php echo $optset['advps_overlay_opacity'];?>;"></div>
         <div class="advps-excerpt-block-<?php echo $template?>" style="color:<?php echo $optset['advps_excptFcolor'];?>;font-size:<?php echo $optset['advps_excptFsize'];?>px;-moz-opacity:<?php echo $optset['advps_text_opacity'];?>;filter:alpha(opacity=<?php echo $optset['advps_text_opacity']*100;?>);opacity:<?php echo $optset['advps_text_opacity'];?>;">        
-        <h1 class="advs-title" style="font-size:<?php echo $optset['advps_titleFsize'];?>px !important;margin:5px 0px 10px 0px !important;color:<?php echo $optset['advps_titleFcolor'];?>"><?php if( $optset['advps_ed_link']=='enable'){?><a target="_blank" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>" style="color:<?php echo $optset['advps_titleFcolor'];?>"><?php }?><?php the_title();?><?php if( $optset['advps_ed_link']=='enable'){?></a><?php }?></h1>
+        <<?php echo $optset['advps_ttitle_tag'];?> class="advs-title" style="font-size:<?php echo $optset['advps_titleFsize'];?>px !important;margin:5px 0px 10px 0px !important;color:<?php echo $optset['advps_titleFcolor'];?>"><?php if( $optset['advps_ed_link']=='enable'){?><a target="<?php echo $optset['advps_link_target'];?>" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>" style="color:<?php echo $optset['advps_titleFcolor'];?>"><?php }?><?php the_title();?><?php if( $optset['advps_ed_link']=='enable'){?></a><?php }?></<?php echo $optset['advps_ttitle_tag'];?>>
           
             <?php the_excerpt();?>
         </div>
       </div>
     </div>
     <?php elseif($template == 'two'):?>
-    <?php if($count % $postperslide == 1 || $postperslide == 1){?><ul class="advps-slide" style="overflow:hidden;"><?php }?><li style="width:<?php if(get_option($optset['advps_thumbnail'].'_size_w')){echo get_option($optset['advps_thumbnail'].'_size_w');}else{echo $_wp_additional_image_sizes[$optset['advps_thumbnail']]['width'];}?>px;height:<?php if(get_option($optset['advps_thumbnail'].'_size_h')){echo get_option($optset['advps_thumbnail'].'_size_h');}else{echo $_wp_additional_image_sizes[$optset['advps_thumbnail']]['height'];}?>px;<?php if($optset['advps_img_Orientation'] == 'horizontal'){{echo 'float:left'.';';}echo 'margin-right:'.$optset['advps_imagemar'].'px;';}else{echo 'margin-bottom:'.$optset['advps_imagemar'].'px;';}?>list-style:none;position:relative;"><?php if( $optset['advps_ed_link']=='enable'){?><a target="_blank" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>"><?php }?>
+    <?php if($count % $postperslide == 1 || $postperslide == 1){?><ul class="advps-slide" style="overflow:hidden;"><?php }?><li style="width:<?php if(get_option($optset['advps_thumbnail'].'_size_w')){echo get_option($optset['advps_thumbnail'].'_size_w');}else{echo $_wp_additional_image_sizes[$optset['advps_thumbnail']]['width'];}?>px;height:<?php if(get_option($optset['advps_thumbnail'].'_size_h')){echo get_option($optset['advps_thumbnail'].'_size_h');}else{echo $_wp_additional_image_sizes[$optset['advps_thumbnail']]['height'];}?>px;<?php if($optset['advps_img_Orientation'] == 'horizontal'){{echo 'float:left'.';';}echo 'margin-right:'.$optset['advps_imagemar'].'px;';}else{echo 'margin-bottom:'.$optset['advps_imagemar'].'px;';}?>list-style:none;position:relative;"><?php if( $optset['advps_ed_link']=='enable'){?><a target="<?php echo $optset['advps_link_target'];?>" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>"><?php }?>
       <?php 
 	  		/*echo $count .'and'. $postperslide*/;if(has_post_thumbnail()){the_post_thumbnail($optset['advps_thumbnail']);}
 	  ?>
@@ -501,13 +506,13 @@
     <?php elseif($template == 'three'):?>
     <div class="advps-slide">
         <div class="advps-slide-field-three" style="position:relative; float:left;width:<?php echo $optset['advps_sld_width'];?>px; height:<?php echo $optset['advps_sld_height'];?>px; overflow:hidden;">
-         <?php if(in_array('thumb',$optset['advps_content_set'])):if( $optset['advps_ed_link']=='enable'){?><a target="_blank" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);};?>"><?php }?>
+         <?php if(in_array('thumb',$optset['advps_content_set'])):if( $optset['advps_ed_link']=='enable'){?><a target="<?php echo $optset['advps_link_target'];?>" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);};?>"><?php }?>
           	<?php if(has_post_thumbnail()){the_post_thumbnail($optset['advps_thumbnail']);}?>
          <?php if( $optset['advps_ed_link']=='enable'){?></a><?php }endif;?>
           <div class="advps-excerpt-<?php echo $template?>" style="position:relative;float:left;width:<?php echo $optset['advps_cont_width'];?>px;z-index:0; color:<?php echo $optset['advps_excptFcolor'];?>; font-size:<?php echo $optset['advps_excptFsize'];?>px;">
-            <?php if(in_array('title',$optset['advps_content_set'])){?><h1 class="advs-title" style="font-size:<?php echo $optset['advps_titleFsize'];?>px;margin:0px 0px 10px 0px;"> <?php if( $optset['advps_ed_link']=='enable'){?><a target="_blank" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>" style="color:<?php echo $optset['advps_titleFcolor'];?>;"><?php }?>
+            <?php if(in_array('title',$optset['advps_content_set'])){?><<?php echo $optset['advps_ttitle_tag'];?> class="advs-title" style="font-size:<?php echo $optset['advps_titleFsize'];?>px;margin:0px 0px 10px 0px;"> <?php if( $optset['advps_ed_link']=='enable'){?><a target="<?php echo $optset['advps_link_target'];?>" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>" style="color:<?php echo $optset['advps_titleFcolor'];?>;"><?php }?>
               <?php the_title();?>
-              <?php if( $optset['advps_ed_link']=='enable'){?></a><?php }?></h1><?php }?>
+              <?php if( $optset['advps_ed_link']=='enable'){?></a><?php }?></<?php echo $optset['advps_ttitle_tag'];?>><?php }?>
               <?php if(in_array('content',$optset['advps_content_set'])){
             			the_content();
 					}

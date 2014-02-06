@@ -3,8 +3,8 @@ Contributors: digontoahsan
 Donate link: 
 Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow, posts, post, image, image slideshow
 Requires at least: 3.0.1
-Tested up to: 3.7
-Stable tag: 1.0
+Tested up to: 3.8.1
+Stable tag: 1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,13 +62,12 @@ Dont have any FAQ for now.
 
 == Screenshots ==
 
-1. Template one optionset
-2. Template two optionset
-3. Template three optionset
-4. Thumbnail options
-5. Template one sample
-6. Template two sample
-7. Template three sample
+1. Templates and options
+2. Templates and options
+3. Thumbnail options
+4. Template one sample
+5. Template two sample
+6. Template three sample
 
 == Changelog ==
 

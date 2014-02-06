@@ -168,7 +168,6 @@ fieldset {
     <?php /*?><a href="?page=advps-slideshow&tab=styling" class="nav-tab <?php if($currTab == 'styling'){echo 'nav-tab-active';}?>">Styling</a> <?php */?>
   </h2>
   <?php if($currTab == 'one'){foreach( $res1 as $dset){ $dataSet = unserialize($dset->opt_data);?>
- 
   <div class="metabox-holder" style="margin-top:20px;">
     <div class="postbox-container" style="width:65%">
       <div class="postbox <?php if(!isset($_POST['opt_id']) || $_POST['opt_id'] != $dset->id){echo 'closed';}?>">
@@ -230,6 +229,7 @@ fieldset {
                       <option value="name" <?php if($dataSet['advps_order_by'] == 'name'){echo 'selected="selected"';}?>>Name</option>
                       <option value="rand" <?php if($dataSet['advps_order_by'] == 'rand'){echo 'selected="selected"';}?>>Random</option>
                       <option value="menu_order" <?php if($dataSet['advps_order_by'] == 'menu_order'){echo 'selected="selected"';}?>>Menu order</option>
+                      <option value="comment_count" <?php if($dataSet['advps_order_by'] == 'comment_count'){echo 'selected="selected"';}?>>Comment count</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -450,6 +450,15 @@ fieldset {
                     &nbsp;<span style="padding-left:10px; font-size:10px; font-style:italic;">[ 0 - 1 ]</span></td>
                 </tr>
                 <tr>
+                  <th scope="row">Title tag</th>
+                  <td><select name="advps_ttitle_tag">
+                      <option value="h1" <?php if($dataSet['advps_ttitle_tag'] == 'h1'){echo 'selected="selected"';}?>>h1</option>
+                      <option value="h2" <?php if($dataSet['advps_ttitle_tag'] == 'h2'){echo 'selected="selected"';}?>>h2</option>
+                      <option value="h3" <?php if($dataSet['advps_ttitle_tag'] == 'h3'){echo 'selected="selected"';}?>>h3</option>
+                      <option value="div" <?php if($dataSet['advps_ttitle_tag'] == 'div'){echo 'selected="selected"';}?>>div</option>
+                    </select></td>
+                </tr>
+                <tr>
                   <th scope="row">Title font Color</th>
                   <td><input type="text" name="advps_titleFcolor" value="<?php echo $dataSet['advps_titleFcolor'];?>" style="width:100px;" class="advps-color-picker" id="advpscolor<?php echo ++$flg?>" />
                     <div class="advpsfarb" style="padding-left:22%"></div></td>
@@ -507,8 +516,17 @@ fieldset {
                       <option value="permalink" <?php if($dataSet['advps_link_type'] == 'permalink'){echo 'selected="selected"';}?>>Permalink</option>
                       <option value="custom" <?php if($dataSet['advps_link_type'] == 'custom'){echo 'selected="selected"';}?>>Custom</option>
                     </select>
-                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span>
-                    </td>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">link target</th>
+                  <td><select name="advps_link_target">
+                      <option value="_self" <?php if($dataSet['advps_link_target'] == '_self'){echo 'selected="selected"';}?>>_self</option>
+                      <option value="_blank" <?php if($dataSet['advps_link_target'] == '_blank'){echo 'selected="selected"';}?>>_blank</option>
+                      <option value="_new" <?php if($dataSet['advps_link_target'] == '_new'){echo 'selected="selected"';}?>>_new</option>
+                      <option value="_top" <?php if($dataSet['advps_link_target'] == '_top'){echo 'selected="selected"';}?>>_top</option>
+                      <option value="_parent" <?php if($dataSet['advps_link_target'] == '_parent'){echo 'selected="selected"';}?>>_parent</option>
+                    </select></td>
                 </tr>
               </table>
             </fieldset>
@@ -554,7 +572,7 @@ fieldset {
               </table>
             </fieldset>
             <input type="hidden" value="<?php echo $dset->id;?>" name="opt_id" />
-             <?php wp_nonce_field('advps-checkauthnonce','advps_wpnonce'); ?>
+            <?php wp_nonce_field('advps-checkauthnonce','advps_wpnonce'); ?>
             <p>
               <input type="submit" name="advps_submit" value="Save changes" class="button-primary" />
             </p>
@@ -621,6 +639,7 @@ fieldset {
                       <option value="name">Name</option>
                       <option value="rand">Random</option>
                       <option value="menu_order">Menu order</option>
+                      <option value="comment_count">Comment count</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -753,7 +772,6 @@ fieldset {
                     <input type="text" name="advps_sld_height" value="270" style="width:80px;" onkeypress="return onlyNum(event);" />
                     px</td>
                 </tr>
-                
                 <tr>
                   <th scope="row">Padding</th>
                   <td><input type="text" name="advps_contpad1" value="10" style="width:40px;" onkeypress="return onlyNum(event);" />
@@ -842,6 +860,15 @@ fieldset {
                     &nbsp;<span style="padding-left:10px; font-size:10px; font-style:italic;">[ 0 - 1 ]</span></td>
                 </tr>
                 <tr>
+                  <th scope="row">Title tag</th>
+                  <td><select name="advps_ttitle_tag">
+                      <option value="h1">h1</option>
+                      <option value="h2" selected="selected">h2</option>
+                      <option value="h3">h3</option>
+                      <option value="div">div</option>
+                    </select></td>
+                </tr>
+                <tr>
                   <th scope="row">Title font Color</th>
                   <td><input id="advpscolor<?php echo ++$flg?>" type="text" name="advps_titleFcolor" value="#FFFFFF" style="width:100px;" class="advps-color-picker" />
                     <div class="advpsfarb" style="padding-left:22%"></div></td>
@@ -898,7 +925,18 @@ fieldset {
                   <td><select name="advps_link_type">
                       <option value="permalink" selected="selected">Permalink</option>
                       <option value="custom">Custom</option>
-                    </select><span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                    </select>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">link target</th>
+                  <td><select name="advps_link_target">
+                      <option value="_self" selected="selected">_self</option>
+                      <option value="_blank">_blank</option>
+                      <option value="_new">_new</option>
+                      <option value="_top">_top</option>
+                      <option value="_parent">_parent</option>
+                    </select></td>
                 </tr>
               </table>
             </fieldset>
@@ -1004,7 +1042,8 @@ fieldset {
                 </tr>
                 <tr>
                   <th scope="row">Max. Number of post</th>
-                  <td><input type="text" name="advps_maxpost" value="<?php echo $dataSet['advps_maxpost'];?>" style="width:60px;" onkeypress="return onlyNum(event);" /> <span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Maximum Slides]</span></td>
+                  <td><input type="text" name="advps_maxpost" value="<?php echo $dataSet['advps_maxpost'];?>" style="width:60px;" onkeypress="return onlyNum(event);" />
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Maximum Slides]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Post per Slide</th>
@@ -1025,6 +1064,7 @@ fieldset {
                       <option value="name" <?php if($dataSet['advps_order_by'] == 'name'){echo 'selected="selected"';}?>>Name</option>
                       <option value="rand" <?php if($dataSet['advps_order_by'] == 'rand'){echo 'selected="selected"';}?>>Random</option>
                       <option value="menu_order" <?php if($dataSet['advps_order_by'] == 'menu_order'){echo 'selected="selected"';}?>>Menu order</option>
+                      <option value="comment_count" <?php if($dataSet['advps_order_by'] == 'comment_count'){echo 'selected="selected"';}?>>Comment count</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -1221,13 +1261,13 @@ fieldset {
                   <td><select name="advps_img_Orientation">
                       <option value="horizontal" <?php if($dataSet['advps_img_Orientation'] == 'horizontal'){echo 'selected="selected"';}?>>Horizontal</option>
                       <option value="vertical" <?php if($dataSet['advps_img_Orientation'] == 'vertical'){echo 'selected="selected"';}?>>Vertical</option>
-                    </select><span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span></td>
+                    </select>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Margin between Images</th>
                   <td><input type="text" name="advps_imagemar" value="<?php echo $dataSet['advps_imagemar'];?>" style="width:40px;" onkeypress="return onlyNum(event);" />
-                    px &nbsp;&nbsp;<span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span>
-                   </td>
+                    px &nbsp;&nbsp;<span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Enable/Disable link</th>
@@ -1241,7 +1281,18 @@ fieldset {
                   <td><select name="advps_link_type">
                       <option value="permalink" <?php if($dataSet['advps_link_type'] == 'permalink'){echo 'selected="selected"';}?>>Permalink</option>
                       <option value="custom" <?php if($dataSet['advps_link_type'] == 'custom'){echo 'selected="selected"';}?>>Custom</option>
-                    </select><span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                    </select>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">link target</th>
+                  <td><select name="advps_link_target">
+                      <option value="_self" <?php if($dataSet['advps_link_target'] == '_self'){echo 'selected="selected"';}?>>_self</option>
+                      <option value="_blank" <?php if($dataSet['advps_link_target'] == '_blank'){echo 'selected="selected"';}?>>_blank</option>
+                      <option value="_new" <?php if($dataSet['advps_link_target'] == '_new'){echo 'selected="selected"';}?>>_new</option>
+                      <option value="_top" <?php if($dataSet['advps_link_target'] == '_top'){echo 'selected="selected"';}?>>_top</option>
+                      <option value="_parent" <?php if($dataSet['advps_link_target'] == '_parent'){echo 'selected="selected"';}?>>_parent</option>
+                    </select></td>
                 </tr>
               </table>
             </fieldset>
@@ -1355,9 +1406,10 @@ fieldset {
                       <option value="ID">ID</option>
                       <option value="author">Author</option>
                       <option value="title">Title</option>
-                      <option value="name">>Name</option>
+                      <option value="name">Name</option>
                       <option value="rand">Random</option>
                       <option value="menu_order">Menu order</option>
+                      <option value="comment_count">Comment count</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -1490,7 +1542,6 @@ fieldset {
                     <input type="text" name="advps_sld_height" value="225" style="width:80px;" onkeypress="return onlyNum(event);" />
                     px</td>
                 </tr>
-                
                 <tr>
                   <th scope="row">Padding</th>
                   <td><input type="text" name="advps_contpad1" value="10" style="width:40px;" onkeypress="return onlyNum(event);" />
@@ -1555,13 +1606,13 @@ fieldset {
                   <td><select name="advps_img_Orientation">
                       <option value="horizontal" selected="selected">Horizontal</option>
                       <option value="vertical">Vertical</option>
-                    </select><span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span></td>
+                    </select>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Margin between Images</th>
                   <td><input type="text" name="advps_imagemar" value="10" style="width:40px;" onkeypress="return onlyNum(event);" />
-                    px &nbsp;&nbsp;<span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span>
-                   </td>
+                    px &nbsp;&nbsp;<span style="padding-left:10px; font-size:10px; font-style:italic;">[ * Skip this if you want to show single image per slide.]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Enable/Disable link</th>
@@ -1575,7 +1626,18 @@ fieldset {
                   <td><select name="advps_link_type">
                       <option value="permalink" selected="selected">Permalink</option>
                       <option value="custom">Custom</option>
-                    </select><span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                    </select>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">link target</th>
+                  <td><select name="advps_link_target">
+                      <option value="_self" selected="selected">_self</option>
+                      <option value="_blank">_blank</option>
+                      <option value="_new">_new</option>
+                      <option value="_top">_top</option>
+                      <option value="_parent">_parent</option>
+                    </select></td>
                 </tr>
               </table>
             </fieldset>
@@ -1698,6 +1760,7 @@ fieldset {
                       <option value="name" <?php if($dataSet['advps_order_by'] == 'name'){echo 'selected="selected"';}?>>Name</option>
                       <option value="rand" <?php if($dataSet['advps_order_by'] == 'rand'){echo 'selected="selected"';}?>>Random</option>
                       <option value="menu_order" <?php if($dataSet['advps_order_by'] == 'menu_order'){echo 'selected="selected"';}?>>Menu order</option>
+                      <option value="comment_count" <?php if($dataSet['advps_order_by'] == 'comment_count'){echo 'selected="selected"';}?>>Comment count</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -1905,6 +1968,15 @@ fieldset {
                     px</td>
                 </tr>
                 <tr>
+                  <th scope="row">Title tag</th>
+                  <td><select name="advps_ttitle_tag">
+                      <option value="h1" <?php if($dataSet['advps_ttitle_tag'] == 'h1'){echo 'selected="selected"';}?>>h1</option>
+                      <option value="h2" <?php if($dataSet['advps_ttitle_tag'] == 'h2'){echo 'selected="selected"';}?>>h2</option>
+                      <option value="h3" <?php if($dataSet['advps_ttitle_tag'] == 'h3'){echo 'selected="selected"';}?>>h3</option>
+                      <option value="div" <?php if($dataSet['advps_ttitle_tag'] == 'div'){echo 'selected="selected"';}?>>div</option>
+                    </select></td>
+                </tr>
+                <tr>
                   <th scope="row">Title font Color</th>
                   <td><input id="advpscolor<?php echo ++$flg?>" type="text" name="advps_titleFcolor" value="<?php echo $dataSet['advps_titleFcolor'];?>" style="width:100px;" class="advps-color-picker" />
                     <div class="advpsfarb" style="padding-left:22%"></div></td>
@@ -1946,7 +2018,18 @@ fieldset {
                   <td><select name="advps_link_type">
                       <option value="permalink" <?php if($dataSet['advps_link_type'] == 'permalink'){echo 'selected="selected"';}?>>Permalink</option>
                       <option value="custom" <?php if($dataSet['advps_link_type'] == 'custom'){echo 'selected="selected"';}?>>Custom</option>
-                    </select><span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                    </select>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">link target</th>
+                  <td><select name="advps_link_target">
+                      <option value="_self" <?php if($dataSet['advps_link_target'] == '_self'){echo 'selected="selected"';}?>>_self</option>
+                      <option value="_blank" <?php if($dataSet['advps_link_target'] == '_blank'){echo 'selected="selected"';}?>>_blank</option>
+                      <option value="_new" <?php if($dataSet['advps_link_target'] == '_new'){echo 'selected="selected"';}?>>_new</option>
+                      <option value="_top" <?php if($dataSet['advps_link_target'] == '_top'){echo 'selected="selected"';}?>>_top</option>
+                      <option value="_parent" <?php if($dataSet['advps_link_target'] == '_parent'){echo 'selected="selected"';}?>>_parent</option>
+                    </select></td>
                 </tr>
               </table>
             </fieldset>
@@ -2056,9 +2139,10 @@ fieldset {
                       <option value="ID">ID</option>
                       <option value="author">Author</option>
                       <option value="title">Title</option>
-                      <option value="name">>Name</option>
+                      <option value="name">Name</option>
                       <option value="rand">Random</option>
                       <option value="menu_order">Menu order</option>
+                      <option value="comment_count">Comment count</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -2266,6 +2350,15 @@ fieldset {
                     px</td>
                 </tr>
                 <tr>
+                  <th scope="row">Title tag</th>
+                  <td><select name="advps_ttitle_tag">
+                      <option value="h1">h1</option>
+                      <option value="h2" selected="selected">h2</option>
+                      <option value="h3">h3</option>
+                      <option value="div">div</option>
+                    </select></td>
+                </tr>
+                <tr>
                   <th scope="row">Title font Color</th>
                   <td><input id="advpscolor<?php echo ++$flg?>" type="text" name="advps_titleFcolor" value="#000000" style="width:100px;" class="advps-color-picker" />
                     <div class="advpsfarb" style="padding-left:22%"></div></td>
@@ -2307,7 +2400,18 @@ fieldset {
                   <td><select name="advps_link_type">
                       <option value="permalink" selected="selected">Permalink</option>
                       <option value="custom">Custom</option>
-                    </select><span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                    </select>
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For custom link create a custom field with name 'advps_custom_link' ]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">link target</th>
+                  <td><select name="advps_link_target">
+                      <option value="_self" selected="selected">_self</option>
+                      <option value="_blank">_blank</option>
+                      <option value="_new">_new</option>
+                      <option value="_top">_top</option>
+                      <option value="_parent">_parent</option>
+                    </select></td>
                 </tr>
               </table>
             </fieldset>
@@ -2384,14 +2488,13 @@ fieldset {
               <td>Width&nbsp;
                 <input type="text" name="advps_thumb_width" value="<?php echo $thmb->width;?>" style="width:80px;" onkeypress="return onlyNum(event);" />
                 px&nbsp;&nbsp;&nbsp;Height&nbsp;
-                <input type="text" name="advps_thumb_height" value="<?php echo $thmb->height;?>" style="width:80px;" onkeypress="return onlyNum(event);" />px 
-                <span style="margin-left:20px;">Crop&nbsp;
+                <input type="text" name="advps_thumb_height" value="<?php echo $thmb->height;?>" style="width:80px;" onkeypress="return onlyNum(event);" />
+                px <span style="margin-left:20px;">Crop&nbsp;
                 <select name="advps_crop">
-                      <option value="yes" <?php if($thmb->crop == 'yes'){echo 'selected="selected"';}?>>true</option>
-                      <option value="no" <?php if($thmb->crop == 'no'){echo 'selected="selected"';}?>>false</option>
-                    </select>
-                </span>
-                <span style="margin-left:20px;">
+                  <option value="yes" <?php if($thmb->crop == 'yes'){echo 'selected="selected"';}?>>true</option>
+                  <option value="no" <?php if($thmb->crop == 'no'){echo 'selected="selected"';}?>>false</option>
+                </select>
+                </span> <span style="margin-left:20px;">
                 <input type="submit" value="Save" class="button-secondary" name="update_thumb" />
                 </span></td>
               <input type="hidden" value="<?php echo $thmb->id;?>" name="thumb_id" />
@@ -2421,11 +2524,10 @@ fieldset {
                 <input type="text" name="advps_thumb_height" value="" style="width:80px;" onkeypress="return onlyNum(event);" />
                 px <span style="margin-left:20px;">Crop&nbsp;
                 <select name="advps_crop">
-                      <option value="yes">true</option>
-                      <option value="no" selected="selected">false</option>
-                    </select>
-                </span>
-                <span style="margin-left:20px;">
+                  <option value="yes">true</option>
+                  <option value="no" selected="selected">false</option>
+                </select>
+                </span> <span style="margin-left:20px;">
                 <?php wp_nonce_field('advps-checkauthnonce','advps_wpnonce'); ?>
                 <input type="submit" value="Add" class="button-secondary" name="advps_add_thumb" />
                 </span></td>
