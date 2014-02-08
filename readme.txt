@@ -4,7 +4,7 @@ Donate link:
 Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow, posts, post, image, image slideshow
 Requires at least: 3.0.1
 Tested up to: 3.8.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,14 @@ Dont have any FAQ for now.
 
 = 1.0 =
 * First version.
+
+= 1.1 = 
+* Option for title tag
+* Option for link target
+* Remove auto exclude current post
+
+= 1.2 =
+* Fix for exclude option
 
 == Upgrade Notice ==
 * Current version

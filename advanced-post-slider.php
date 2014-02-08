@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Advanced post slider is a slideshow plugin powered with three built-in templates, lots of effect, easy customizable options and many more to explore.
-	Version: 1.1
+	Version: 1.2
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -337,20 +337,13 @@
 		}
 		else return;
 		
-		/*if($optset['advps_exclude']){
+		if($optset['advps_exclude']){
 			$exclude = explode(',',$optset['advps_exclude']);
-			if(!in_array($current,$exclude)){
-				$exclude[] = $current;
-			}
 		}
-		else
-		{
-			$exclude[] = $current;
-		}*/
 		
 		$query_arg = array(
 			'post_type' 	 => ($optset['advps_post_types']) ? $optset['advps_post_types'] : 'post',
-			'post__not_in' => $exclude,
+			'post__not_in' => ($exclude) ? $exclude : '',
 			//'cat'			 => (is_array($atts) && array_key_exists('cat',$atts)) ? $atts['cat'] : 1,
 			'posts_per_page' =>	($optset['advps_maxpost']) ? $optset['advps_maxpost'] : 10,
 			'orderby'		 => ($optset['advps_order_by']) ? $optset['advps_order_by'] : 'date',
