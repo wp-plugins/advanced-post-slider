@@ -340,10 +340,14 @@
 		if($optset['advps_exclude']){
 			$exclude = explode(',',$optset['advps_exclude']);
 		}
+		else
+		{
+			$exclude = '';
+		}
 		
 		$query_arg = array(
 			'post_type' 	 => ($optset['advps_post_types']) ? $optset['advps_post_types'] : 'post',
-			'post__not_in' => ($exclude) ? $exclude : '',
+			'post__not_in' => $exclude,
 			//'cat'			 => (is_array($atts) && array_key_exists('cat',$atts)) ? $atts['cat'] : 1,
 			'posts_per_page' =>	($optset['advps_maxpost']) ? $optset['advps_maxpost'] : 10,
 			'orderby'		 => ($optset['advps_order_by']) ? $optset['advps_order_by'] : 'date',
