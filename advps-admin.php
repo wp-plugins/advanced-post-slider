@@ -355,6 +355,11 @@ fieldset {
                     </select></td>
                 </tr>
                 <tr>
+                  <th scope="row">Default image url</th>
+                  <td><input type="text" name="advps_default_image" value="<?php echo $dataSet['advps_default_image'];?>" style="width:250px;" />
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;"> [ N.B. If any post doesn't have featured image then default image will be shown.]</span></td>
+                </tr>
+                <tr>
                   <th scope="row">Slide Container</th>
                   <td>Width&nbsp;
                     <input type="text" name="advps_sld_width" value="<?php echo $dataSet['advps_sld_width'];?>" style="width:80px;" onkeypress="return onlyNum(event);" />
@@ -763,6 +768,11 @@ fieldset {
                         }
                         ?>
                     </select></td>
+                </tr>
+                <tr>
+                  <th scope="row">Default image url</th>
+                  <td><input type="text" name="advps_default_image" value="" style="width:250px;" />
+                    <span style="padding-left:10px; font-size:10px; font-style:italic;"> [ N.B. If any post doesn't have featured image then default image will be shown.]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Slide Container</th>

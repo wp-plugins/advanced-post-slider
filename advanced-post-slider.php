@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Advanced post slider is a slideshow plugin powered with three built-in templates, lots of effect, easy customizable options and many more to explore.
-	Version: 1.2
+	Version: 1.2.1
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -53,6 +53,7 @@
 		
 	$templateOneDefaultOptions = array(
 			"advps_thumbnail" => "advps_thumbnail_one",
+			"advps_default_image" => "",
 			"advps_sld_width" => "820",
 			"advps_sld_height" => "270",
 			 "advps_contpad1" => "10",
@@ -476,13 +477,19 @@
 			$th_height = $th_metadata['sizes'][$optset['advps_thumbnail']]['height'];
 		}
 	}
+	else
+	{
+		$th_width = $optset['advps_sld_width'] - ($optset['advps_contpad2']+$optset['advps_contpad4']);
+		$th_height = $optset['advps_sld_height'] - ($optset['advps_contpad1']+$optset['advps_contpad3']);
+	}
 	?>
     <div class="advps-slide" style="width:<?php if(isset($th_width)){echo $th_width;}?>px; height:<?php if(isset($th_height)){echo $th_height;}?>px;">
 	<?php if( $optset['advps_ed_link']=='enable'){?><a target="<?php echo $optset['advps_link_target'];?>" href="<?php if($optset['advps_link_type'] == 'permalink'){the_permalink();}else{echo get_post_meta($post->ID,'advps_custom_link',true);}?>"><?php }?>
       <?php 
-	  		if(has_post_thumbnail()){the_post_thumbnail($optset['advps_thumbnail']);}
+	  		if(has_post_thumbnail()){the_post_thumbnail($optset['advps_thumbnail']);}else{
 	  ?>
-      <?php if( $optset['advps_ed_link']=='enable'){?></a><?php }?>
+      <img src="<?php echo $optset['advps_default_image'];?>" style="width:<?php echo $th_width;?>px;height:<?php echo $th_height;?>px;" class="wp-post-image" />
+      <?php }if( $optset['advps_ed_link']=='enable'){?></a><?php }?>
        
       <div class="advps-excerpt-<?php echo $template?>" style="width:<?php echo $optset['advps_overlay_width'];?>%;height:<?php echo  $optset['advps_overlay_height'];?>%;<?php if($optset['advps_excpt_visibility'] == 'show on hover'){?>display:none;<?php }if($optset['advps_excpt_position'] == 'left'){?>top:0; left:0;<?php }elseif($optset['advps_excpt_position'] == 'right'){?>top:0; right:0;<?php }elseif($optset['advps_excpt_position'] == 'bottom'){?>bottom:0; left:0;<?php }?>">
       	<div class="advps-overlay-<?php echo $template?>" style="background-color:<?php echo $optset['advps_overlay_color'];?>; -moz-opacity:<?php echo $optset['advps_overlay_opacity'];?>;filter:alpha(opacity=<?php echo $optset['advps_overlay_opacity']*100;?>);opacity:<?php echo $optset['advps_overlay_opacity'];?>;"></div>
