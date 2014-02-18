@@ -82,6 +82,9 @@ Dont have any FAQ for now.
 = 1.2 =
 * Fix for exclude option
 
+= 1.2.1 =
+* Option for set default image at template one. If there is no featured image for a post then it will be shown.
+
 == Upgrade Notice ==
 * Current version
 
