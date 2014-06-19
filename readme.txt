@@ -1,14 +1,14 @@
 ﻿=== Advanced post slider ===
 Contributors: digontoahsan
 Donate link: 
-Tags: post slider, slider, slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, sidebar slideshow, posts, post, image, image slideshow
+Tags: post slider, slider, slideshow, wordpress slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, sidebar slideshow, posts, post, image, image slideshow,
 Requires at least: 3.0.1
-Tested up to: 3.8.1
-Stable tag: 1.2.1
+Tested up to: 3.9.1
+Stable tag: 2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Advanced post slider is a slideshow plugin powered with three built-in templates, lots of effect, easy customizable options and many more to explore.
+Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
 
 == Description ==
 
@@ -52,8 +52,6 @@ Use shortcode [advps-slideshow optset="optset ID"] at admin panel post/page edit
 Use WordPress function "do_shortcode" for use in template or theme PHP file.
 `<?php echo do_shortcode( '[advps-slideshow optset="1"]' ); ?>`
 
-Watch this <a href="https://www.youtube.com/watch?v=5OcqO8Wmrhs" target="_blank">video</a> for installation and quick overview.
-
 == Frequently Asked Questions ==
 
 = Where do I submit a question? =
@@ -63,11 +61,12 @@ Dont have any FAQ for now.
 == Screenshots ==
 
 1. Templates and options
-2. Templates and options
-3. Thumbnail options
-4. Template one sample
-5. Template two sample
-6. Template three sample
+2. Template one example
+3. Template one example
+4. Template one example
+5. Carousel & Ticker with template one
+6. Template three example
+7. Template three example
 
 == Changelog ==
 
@@ -82,9 +81,14 @@ Dont have any FAQ for now.
 = 1.2 =
 * Fix for exclude option
 
+= 2.0 =
+* Enhancements & New feature
+	* Responsive
+	* Thumbnail pagination 
+	* Carousel & Ticker mode for all templates
+	* Multiple slide for all template
+	* Improved design for template one
+	* Improved admin UI
+
+
 == Upgrade Notice ==
-* Current version
-
-== Thank You ==
-
-Thank you for trying this plugin!

@@ -3,14 +3,20 @@ jQuery(document).ready(function($) {
 	//alert('got');
 	var wpversion = $('meta[name=wpversion]').attr("content");
 	//alert($('meta[name=wpversion]').attr("content"));
-	$(".postbox h3.advps-expand").click(function(){
-		//alert($(this).parent().attr('class'));
+	$(".postbox h3.advps-expand,.postbox .handlediv").click(function(e){
+		if($(this).hasClass('advps-highlight')){
+			$(this).removeClass('advps-highlight')
+		}
 		if($(this).parent().hasClass('closed')){
-			$(this).parent().removeClass('closed')
+		$(this).parent().removeClass('closed');
+		$(this).parent().find(".handlediv").removeClass('down');
+		$(this).parent().find(".handlediv").addClass('up');
 		}
 		else
 		{
-			$(this).parent().addClass('closed')
+		$(this).parent().addClass('closed');
+		$(this).parent().find(".handlediv").removeClass('up');
+		$(this).parent().find(".handlediv").addClass('down');
 		}
 	});
 	
@@ -40,28 +46,6 @@ jQuery(document).ready(function($) {
 	 }//
 });
 
-/*function checkPager(){
-	var pagerVal = jQuery("#ex_pager").val();
-	//alert(pagerVal); 
-	if(pagerVal == 'yes'){
-		jQuery(".pagerfld").fadeOut(500,'linear',function(){});
-	}
-	else
-	{
-		jQuery(".pagerfld").fadeIn(500,'linear',function(){});
-	}
-}
-function checkNextPrev(){
-	var nxtprvVal = jQuery("#ex_nxtprv").val();
-	//alert(pagerVal); 
-	if(nxtprvVal == 'yes'){
-		jQuery(".nxtprvfld").fadeOut(500,'linear',function(){});
-	}
-	else
-	{
-		jQuery(".nxtprvfld").fadeIn(500,'linear',function(){});
-	}
-}*/
 function onlyNum(evt)
 {
     var e = window.event || evt;
@@ -73,25 +57,19 @@ function onlyNum(evt)
     return true;
 
 }
+function NumNdNeg(evt)
+{
+    var e = window.event || evt;
+    var charCode = e.which || e.keyCode;
 
-/*function advpsUpdateOpt(a,f){
-	//alert(n);
-	if(a==2){
-		var chkConf = confirm("Do you realy want to dele this option set ?");
-		if(chkConf){
-			jQuery("#advps_ack"+f).val('delete');
-			jQuery("#updateOptFrm"+f).submit();
-		}
-	}
-	else{
-		jQuery("#advps_ack").val('update');
-		jQuery("#updateOptFrm").submit();
-	}
-}*/
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 45)
+        return false;
+
+    return true;
+
+}
+
 function advpsCheckCat(p,n){
-	//alert(jQuery('#advps-cat-field').html());
-	//alert(p);
-	//return;
 	var fldSel = 'advps-cat-field'+n;
 	if(p != "page"){
 		jQuery.ajax({
@@ -115,3 +93,124 @@ function advpsCheckCat(p,n){
 	}
 }
 
+function advpsUpdateLabel(f,v,id){
+	jQuery('#lbludtSts'+id).css('display','inline');
+	jQuery.ajax({
+		  type : "post",
+		  context: this,
+		  dataType : "html",
+		  url : advpsajx.ajaxurl, 
+		  data : {action: "advpsUpdateLabel",f_name:f,f_value:v,checkReq:advpsajx.advpsAjaxReqChck},        	
+		  success: function(response) {
+			 jQuery('#lbltxt'+id).html(v);
+			jQuery('#lbludtSts'+id).css('display','none');
+			},
+			complete : function(){
+				
+			}
+	});///
+}
+function updateOptionSet(id){
+	var optdata = jQuery('#'+id).serialize();
+	
+	jQuery('.ajx-sts').html('');
+	jQuery('#'+id).find('.ajx-loader').css('display','inline');
+	
+	jQuery.ajax({
+		  type : "post",
+		  context: this,
+		  dataType : "html",
+		  url : advpsajx.ajaxurl, 
+		  data : {action: "advpsUpdateOpt",optdata:optdata,checkReq:advpsajx.advpsAjaxReqChck},        	
+		  success: function(response) {
+			 
+			jQuery('#'+id).find('.ajx-loader').css('display','none');
+			jQuery('#'+id).find('.ajx-sts').html(response);
+			setTimeout('clearText()',4000);
+			},
+			complete : function(){
+				
+			}
+	});///
+}
+function listPost(n){
+	var fldSel = 'advps-plist-field'+n;
+	
+	var ptype = jQuery("#plist"+n+" select[name=advps_post_stypes]").val();
+	var pmax = jQuery("#plist"+n+" input[name=advps_plistmax]").val();
+	var porderBy = jQuery("#plist"+n+" select[name=advps_plistorder_by]").val();
+	var porder = jQuery("#plist"+n+" select[name=advps_plistorder]").val();
+	
+	jQuery('#plist'+n).find('.ajx-loaderp').css('display','inline');
+	
+	jQuery.ajax({
+		  type : "post",
+		  context: this,
+		  dataType : "html",
+		  url : advpsajx.ajaxurl, 
+		  data : {action: "advpsListPost",ptype:ptype,pmax:pmax,porderBy:porderBy,porder:porder,checkReq:advpsajx.advpsAjaxReqChck},        	
+		  success: function(response) {
+			 jQuery('#'+fldSel).html(response);
+			 jQuery('#plist'+n).find('.ajx-loaderp').css('display','none');
+			
+		  },
+		  complete : function(){
+			  
+		  }
+	});///
+}
+function updateSm(elem,id){
+	jQuery('#smudtsts'+id).css('display','inline');
+	
+	var selval = jQuery(elem).val();
+	var selnam = jQuery(elem).attr('name');
+	
+	if(selval == 'query'){
+		jQuery("#plist"+id+" table").addClass("advps-hide");
+		jQuery("#query"+id+" table").removeClass("advps-hide");
+	}
+	else
+	{
+		jQuery("#query"+id+" table").addClass("advps-hide");
+		jQuery("#plist"+id+" table").removeClass("advps-hide");
+	}
+	
+	jQuery.ajax({
+		  type : "post",
+		  context: this,
+		  dataType : "html",
+		  url : advpsajx.ajaxurl, 
+		  data : {action: "advpsUpdateSmethod",selnam:selnam,selval:selval,checkReq:advpsajx.advpsAjaxReqChck},        	
+		  success: function(response) {	
+		  	jQuery('#smudtsts'+id).css('display','none');
+		  },
+		  complete : function(){
+			  
+		  }
+	});///
+}
+
+function deleteOptSet(id){
+	var rsp = confirm("Do you really want to delete this option set?");
+	if(rsp){
+		jQuery("#frmOptDel"+id).removeAttr("onsubmit");
+		jQuery("#frmOptDel"+id).submit();
+	}
+}
+function pagerAttr(v){
+	alert(v);
+}
+function clearText(){
+	jQuery('.ajx-sts').html('');
+}
+function sliderType(v,id){
+	if(v != 'standard'){
+		jQuery("#advps-pthumb-lvl"+id).addClass('advps-fade');
+		jQuery("#advps-pthumb"+id).attr('disabled','disabled');
+	}
+	else
+	{
+		jQuery("#advps-pthumb-lvl"+id).removeClass('advps-fade');
+		jQuery("#advps-pthumb"+id).removeAttr('disabled');
+	}
+}
