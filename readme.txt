@@ -82,6 +82,13 @@ Dont have any FAQ for now.
 * Fix for exclude option
 
 = 2.0 =
+* Important Upgrade notice
+	* Dont perform automatic upgrade now. There is a bug and I will fix it ASAP. Rather than upgrading automatically by clicking update now just deactivate the plugin then delete it from admin panel then re-install version 2 again.
+    
+* Before upgrade
+	* Database structure of Advanced post slider is changed. Your previous option set and settings will be lost.
+    * jQuery plugin is changed to bxSlider. jQuery Cycle plugin lover may consider not to update.
+    
 * Enhancements & New feature
 	* Responsive
 	* Thumbnail pagination 
@@ -92,3 +99,9 @@ Dont have any FAQ for now.
 
 
 == Upgrade Notice ==
+* Important Upgrade notice
+	* Dont perform automatic upgrade now. There is a bug and I will fix it ASAP. Rather than upgrading automatically by clicking update now just deactivate the plugin then delete it from admin panel then re-install version 2 again.
+    
+* Before upgrade
+	* Database structure of Advanced post slider is changed. Your previous option set and settings will be lost.
+    * jQuery plugin is changed to bxSlider. jQuery Cycle plugin lover may consider not to update.
