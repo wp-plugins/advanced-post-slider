@@ -4,7 +4,7 @@ Donate link:
 Tags: post slider, slider, slideshow, wordpress slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, sidebar slideshow, posts, post, image, image slideshow,
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,10 @@ Dont have any FAQ for now.
     
 * Feature added
 	* Auto play and play/pause enabled for carousel
+    
+= 2.1.1 =
+* Bug fix
+	* Bug fix for slider effect.
 
 == Upgrade Notice ==
 * Bug fix release for version 2. Upgrade highly recommended.

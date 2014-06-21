@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
-	Version: 2.1.0
+	Version: 2.1.1
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -434,7 +434,9 @@
   				slideWidth: <?php echo $caro_ticker['advps_caro_sldwidth']?>,
 				<?php }else{if($navigation['advps_pager_type']=='thumb'){?>
 				pagerCustom: '#bx-pager',
-				<?php }}?>
+				<?php }?>
+				mode: '<?php echo $slider['advps_effects'];?>',
+				<?php }?>
 				<?php if($slider['advps_slider_type'] != 'ticker'){?>
 				auto: <?php if($slider['advps_autoplay']=='yes'){echo 1;}else{echo 0;}?>,
 				autoHover: <?php if($slider['advps_ps_hover']=='yes'){echo 1;}else{echo 0;}?>,
