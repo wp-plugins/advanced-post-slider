@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
-	Version: 2.0
+	Version: 2.1.0
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -65,6 +65,8 @@
 	
 	register_activation_hook(WP_PLUGIN_DIR.'/advanced-post-slider/advanced-post-slider.php','set_advps_options');
 	register_deactivation_hook(WP_PLUGIN_DIR.'/advanced-post-slider/advanced-post-slider.php','unset_advps_options');
+	
+	add_action( 'plugins_loaded', 'set_advps_options' );
 	
 	function unset_advps_options(){
 	}
@@ -182,7 +184,7 @@
 		}
 		else
 		{
-			echo 'Nothing to change.';
+			echo 'No change.';
 		}
 		exit;
 	}
@@ -422,29 +424,28 @@
 </style>
 <script type="text/javascript">
 		jQuery(document).ready(function($){
-			$('#advpsslideshow_<?php echo $sldshowID;?>').bxSlider({				
+			$('#advpsslideshow_<?php echo $sldshowID;?>').bxSlider({
 				useCSS:<?php if($slider['advps_transition']=='css3'){echo 1;}else{echo 0;}?>,
 				slideMargin: <?php echo $slider['advps_sldmargin'];?>,
-				speed: <?php echo $slider['advps_speed'];?>,
-				auto: <?php if($slider['advps_slider_type'] == 'standard' && $slider['advps_autoplay']=='yes'){echo 1;}else{echo 0;}?>,
-				autoHover: <?php if($slider['advps_slider_type'] != 'ticker' && $slider['advps_ps_hover']=='yes'){echo 1;}else{echo 0;}?>,
-				<?php if(isset($slider['advps_slider_type']) && ($slider['advps_slider_type'] == 'carousel' || $slider['advps_slider_type'] == 'ticker')){?>
+				speed: <?php echo $slider['advps_speed'];?>,				
+				<?php if($slider['advps_slider_type'] == 'carousel' || $slider['advps_slider_type'] == 'ticker'){?>
 				minSlides: <?php echo $caro_ticker['advps_caro_slds']?>,
   				maxSlides: <?php echo $caro_ticker['advps_caro_slds']?>,
-  				slideWidth: <?php echo $caro_ticker['advps_caro_sldwidth']?>
-				<?php if($slider['advps_slider_type'] == 'ticker'){?>
-				,ticker: true,
-				tickerHover:<?php if($slider['advps_ps_hover']=='yes'){echo 1;}else{echo 0;}?>
-				<?php }}else{?>
-				mode: '<?php echo $slider['advps_effects'];?>',	
+  				slideWidth: <?php echo $caro_ticker['advps_caro_sldwidth']?>,
+				<?php }else{if($navigation['advps_pager_type']=='thumb'){?>
+				pagerCustom: '#bx-pager',
+				<?php }}?>
+				<?php if($slider['advps_slider_type'] != 'ticker'){?>
+				auto: <?php if($slider['advps_autoplay']=='yes'){echo 1;}else{echo 0;}?>,
+				autoHover: <?php if($slider['advps_ps_hover']=='yes'){echo 1;}else{echo 0;}?>,
 				pause: <?php echo $slider['advps_timeout'];?>,
 				easing: 'linear',
 				controls: <?php if($navigation['advps_exclude_nxtprev']=='no'){echo 1;}else{echo 0;}?>,
-			<?php if($navigation['advps_pager_type']=='thumb'):?>
-				pagerCustom: '#bx-pager',
-			<?php endif;?>	
 				pager: <?php if($navigation['advps_exclude_pager']=='no'){echo 1;}else{echo 0;}?>,
   				autoControls: <?php if($navigation['advps_exclude_playpause']=='no'){echo 1;}else{echo 0;}?>
+				<?php }else{?>
+				ticker: true,
+				tickerHover:<?php if($slider['advps_ps_hover']=='yes'){echo 1;}else{echo 0;}?>
 				<?php }?>
 			});
 			<?php if($template == "one" || $template == "three"):?>

@@ -155,6 +155,11 @@
 		if( $wpdb->get_results("SHOW TABLES LIKE '".$advps_opt_table."'") && $db_version < 2 ){
 			$wpdb->query("DROP TABLE ".$advps_opt_table);			
 		}
+		elseif( $wpdb->get_results("SHOW TABLES LIKE '".$advps_opt_table."'") && $db_version == 2 ){
+			if( !$wpdb->get_results("SHOW COLUMNS FROM ".$advps_opt_table." LIKE 'plist'") ){
+				$wpdb->query("DROP TABLE ".$advps_opt_table);	
+			}
+		}
 		
 		$ins_q = "CREATE TABLE IF NOT EXISTS ".$wpdb->prefix."advps_optionset (
   				`id` int(5) NOT NULL AUTO_INCREMENT,

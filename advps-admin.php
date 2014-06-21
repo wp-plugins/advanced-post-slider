@@ -23,6 +23,7 @@
 		$q_del = $wpdb->prepare("delete from ".$wpdb->prefix."advps_optionset where id = %d",$_POST['optset-id']);
 			
 		if($wpdb->query($q_del)){
+			delete_option('optset'.$_POST['optset-id']);
 			$stsMgs =  "Deleted successfully.";
 		}
 	}
