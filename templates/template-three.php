@@ -520,11 +520,11 @@ foreach( $res3 as $dset){
               <tr>
                 <th scope="row">Pager type</th>
                 <td><span style="padding-right:5px;">Number</span>
-                  <input type="radio" name="advps_pager_type" value="number" <?php if($navigation['advps_pager_type'] == 'number'){echo 'checked="checked"';}?>>
+                  <input type="radio" name="advps_pager_type" value="number" <?php if(isset($navigation['advps_pager_type']) && $navigation['advps_pager_type'] == 'number'){echo 'checked="checked"';}?>>
                   <span style="padding:0px 5px 0px 10px;">Bullet</span>
-                  <input type="radio" name="advps_pager_type" value="bullet" <?php if($navigation['advps_pager_type'] == 'bullet'){echo 'checked="checked"';}?>>
+                  <input type="radio" name="advps_pager_type" value="bullet" <?php if(isset($navigation['advps_pager_type']) && $navigation['advps_pager_type'] == 'bullet'){echo 'checked="checked"';}?>>
                   <span id="advps-pthumb-lvl<?php echo $dset->id;?>" style="padding:0px 5px 0px 10px;" class="<?php if($slider['advps_slider_type'] != 'standard'){echo 'advps-fade';}?>">Thumbnail</span>
-                  <input id="advps-pthumb<?php echo $dset->id;?>" <?php if($slider['advps_slider_type'] != 'standard'){echo 'disabled="disabled"';}?> type="radio" name="advps_pager_type" value="thumb" <?php if($navigation['advps_pager_type'] == 'thumb'){echo 'checked="checked"';}?>></td>
+                  <input id="advps-pthumb<?php echo $dset->id;?>" <?php if($slider['advps_slider_type'] != 'standard'){echo 'disabled="disabled"';}?> type="radio" name="advps_pager_type" value="thumb" <?php if(isset($navigation['advps_pager_type']) && $navigation['advps_pager_type'] == 'thumb'){echo 'checked="checked"';}?>></td>
               </tr>
               <tr>
                 <th scope="row">Thumbnail Width</th>
@@ -551,7 +551,7 @@ foreach( $res3 as $dset){
                     <option value="yes" <?php if($navigation['advps_exclude_playpause'] == 'yes'){echo 'selected="selected"';}?>>Yes</option>
                     <option value="no" <?php if($navigation['advps_exclude_playpause'] == 'no'){echo 'selected="selected"';}?>>No</option>
                   </select>
-                  <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. Play/Pause works when Slider Type is standard and auto play is enabled. ]</span></td>
+                  <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. Play/Pause works when Slider Type is standard or carousel and auto play is enabled. ]</span></td>
               </tr>
               <tr>
                 <th scope="row">Play/Pause align</th>
