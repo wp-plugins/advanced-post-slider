@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
-	Version: 2.1.1
+	Version: 2.1.2
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -22,8 +22,6 @@
 	define('advps_url',WP_PLUGIN_URL."/advanced-post-slider/");
 	
 	require 'advps-db.php';
-	if(!function_exists('aq_resize') && !class_exists('Aq_Resize'))
-		require 'aq_resizer.php';
 	
 	/* ---------------------------------------------------------------------------------*/
 	function advps_enqueue() {
@@ -79,6 +77,8 @@
 			  add_image_size( $th->thumb_name,$th->width,$th->height, true); 
 		  }
 	  }
+	  if(!function_exists('aq_resize') && !class_exists('Aq_Resize'))
+		require_once( 'aq_resizer.php' );
 	}
 	add_action('wp_loaded', 'advps_image_sizes');
 	
