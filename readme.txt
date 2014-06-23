@@ -15,7 +15,11 @@ Responsive slideshow plugin powered with three built-in templates, lots of easy 
 Unlimited number of slideshow in a single page or post with different sets of options like post type, category, effect, navigation type.
 Create slideshow with single or multiple images per slide, rotate your banner or client logo at sidebar; scroll your testimonial with custom link.
 
-<strong>Click here for <a target="_blank" href="http://wpcue.com/plugins/advanced-post-slider/template-one-demo/">demo</a></strong>
+> #### **Live Demos**
+
+> * [Template One](http://www.wpcue.com/wordpress-plugins/advanced-post-slider/template-one/)
+> * [Template Two](http://www.wpcue.com/wordpress-plugins/advanced-post-slider/template-two/)
+> * [Template Three](http://www.wpcue.com/wordpress-plugins/advanced-post-slider/template-three/)
 
 = Key Feature =
 
