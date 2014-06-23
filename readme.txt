@@ -1,7 +1,7 @@
 ﻿=== Advanced post slider ===
 Contributors: digontoahsan
 Donate link: 
-Tags: post slider, slider, slideshow, wordpress slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, sidebar slideshow, posts, post, image, image slideshow,
+Tags: post slider, slider, slideshow, wordpress slideshow, best slideshow, best post slider, best slideshow plugin,gallery, photo gallery, photo album, photo albums, images, wordpress gallery plugin, best gallery, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, best gallery plugin, plugin gallery, image slider, wp gallery, responsive gallery, sidebar slideshow, posts, post, image, image slideshow,gallery plugin, galerie, responsive slideshow, responsive slider, carousel, carousel slider, ticker, news slider,thumbnail
 Requires at least: 3.0.1
 Tested up to: 3.9.1
 Stable tag: 2.1.2
@@ -31,7 +31,7 @@ Create slideshow with single or multiple images per slide, rotate your banner or
 * Ability to control excerpt length for each slideshow
 * Cross browser compatibility
 
-Visit <a target="_blank" href="http://www.wpcue.com/plugins/advanced-post-slider/">www.wpcue.com/</a> for more
+Visit <a target="_blank" href="http://www.wpcue.com/">www.wpcue.com/</a> for more
 
 == Installation ==
 
