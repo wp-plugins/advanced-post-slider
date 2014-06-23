@@ -1,7 +1,7 @@
 ﻿=== Advanced post slider ===
 Contributors: digontoahsan
 Donate link: 
-Tags: post slider, slider, slideshow, wordpress slideshow, best slideshow, best post slider, best slideshow plugin,gallery, photo gallery, photo album, photo albums, images, wordpress gallery plugin, best gallery, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, best gallery plugin, plugin gallery, image slider, wp gallery, responsive gallery, sidebar slideshow, posts, post, image, image slideshow,gallery plugin, galerie, responsive slideshow, responsive slider, carousel, carousel slider, ticker, news slider,thumbnail
+Tags: post slider, slider, slideshow, wordpress slideshow, best slideshow, best post slider, best slideshow plugin, images, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, image slider, sidebar slideshow, posts, post, image, image slideshow, responsive slideshow, responsive slider, best responsive slider, best carousel slider, carousel slider, ticker, responsive carousel slider, responsive carousel, showcase, news slider, thumbnail, thumbnail slider, featured thumbnail
 Requires at least: 3.0.1
 Tested up to: 3.9.1
 Stable tag: 2.1.2
