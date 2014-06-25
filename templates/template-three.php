@@ -15,16 +15,16 @@ foreach( $res3 as $dset){
     <div class="postbox closed">
       <div class="handlediv down" title="Click to toggle"> <br>
       </div>
-      <h3 style="cursor:pointer; text-align:center" class="advps-expand <?php if(isset($_POST['advps_submit']) && $_POST['advps_submit'] == 'Add new option set' && $_POST['nextoptid'] == $dset->id){echo 'advps-highlight';}?>" id="lbltxt<?php echo $dset->id;?>">
-        <?php if(get_option('optset'.$dset->id)){echo get_option('optset'.$dset->id);}else{echo 'Option Set';}?>
+      <h3 style="cursor:pointer; text-align:center" class="advps-expand <?php if(isset($_POST['advps_submit']) && $_POST['advps_submit'] == 'Add new slideshow' && $_POST['nextoptid'] == $dset->id){echo 'advps-highlight';}?>" id="lbltxt<?php echo $dset->id;?>">
+        <?php if(get_option('optset'.$dset->id)){echo get_option('optset'.$dset->id);}else{echo 'Slider '.$dset->id;}?>
       </h3>
       <div class="inside">
         <fieldset>
           <legend class="advps-legend" style="width:97px;"><strong>Label & Usage</strong></legend>
           <table class="form-table">
             <tr>
-              <th scope="row">Option set label</th>
-              <td><input type="text" style="width:px;" value="<?php if(get_option('optset'.$dset->id)){echo get_option('optset'.$dset->id);}else{echo 'Option Set';}?>" name="optset<?php echo $dset->id;?>" class="advps-optset-label" onchange="advpsUpdateLabel(this.name,this.value,<?php echo $dset->id;?>)" />
+              <th scope="row">Label</th>
+              <td><input type="text" style="width:px;" value="<?php if(get_option('optset'.$dset->id)){echo get_option('optset'.$dset->id);}else{echo 'Slider '.$dset->id;}?>" name="optset<?php echo $dset->id;?>" class="advps-optset-label" onchange="advpsUpdateLabel(this.name,this.value,<?php echo $dset->id;?>)" />
                 <span id="lbludtSts<?php echo $dset->id;?>" style="padding-left:10px; display:none;"><img src="<?php echo advps_url;?>/images/ajax-loader.gif" /></span></td>
             </tr>
             <tr>
@@ -586,7 +586,7 @@ foreach( $res3 as $dset){
         <form method="post" id="frmOptDel<?php echo $dset->id;?>" onsubmit="return false">
           <input type="hidden" value="<?php echo $dset->id;?>" name="optset-id" />
           <p>
-            <input type="submit" name="del-optset" value="Delete this option set" class="button-secondary" onclick="deleteOptSet(<?php echo $dset->id;?>)" />
+            <input type="submit" name="del-optset" value="Delete" class="button-secondary" onclick="deleteOptSet(<?php echo $dset->id;?>)" style="width:12%;" />
           </p>
           <?php wp_nonce_field('advps-checkauthnonce','advps_wpnonce'); ?>
         </form>
@@ -603,6 +603,6 @@ $tcount = $wpdb->get_results("SHOW TABLE STATUS WHERE name = '".$wpdb->prefix."a
     <input type="hidden" name="nextoptid" value="<?php echo $tcount[0]->Auto_increment;?>" />
     <input type="hidden" name="template" value="three" />
     <?php wp_nonce_field('advps-checkauthnonce','advps_wpnonce'); ?>
-    <input type="submit" name="advps_submit" value="Add new option set" class="button-primary" style="font-weight:bold" />
+    <input type="submit" name="advps_submit" value="Add new slideshow" class="button-primary" style="font-weight:bold" />
   </form>
 </div>
