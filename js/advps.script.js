@@ -191,7 +191,7 @@ function updateSm(elem,id){
 }
 
 function deleteOptSet(id){
-	var rsp = confirm("Do you really want to delete this option set?");
+	var rsp = confirm("Do you really want to delete this slider?");
 	if(rsp){
 		jQuery("#frmOptDel"+id).removeAttr("onsubmit");
 		jQuery("#frmOptDel"+id).submit();
