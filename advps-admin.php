@@ -29,7 +29,7 @@
 	}
 	if(isset($_POST['advps_submit'])){
 		
-		if($_POST['advps_submit'] == 'Add new option set'){
+		if($_POST['advps_submit'] == 'Add new slideshow'){
 			
 			if ( !isset($_POST['advps_wpnonce']) || !wp_verify_nonce($_POST['advps_wpnonce'],'advps-checkauthnonce') )
 			{

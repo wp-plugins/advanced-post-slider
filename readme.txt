@@ -1,10 +1,10 @@
 ﻿=== Advanced post slider ===
 Contributors: digontoahsan
 Donate link: 
-Tags: post slider, slider, slideshow, wordpress slideshow, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, sidebar slideshow, posts, post, image, image slideshow,
+Tags: post slider, slider, slideshow, wordpress slideshow, best slideshow, best post slider, best slideshow plugin, images, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, image slider, sidebar slideshow, posts, post, image, image slideshow, responsive slideshow, responsive slider, best responsive slider, best carousel slider, carousel slider, ticker, responsive carousel slider, responsive carousel, showcase, news slider, thumbnail, thumbnail slider, featured thumbnail
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,11 @@ Responsive slideshow plugin powered with three built-in templates, lots of easy 
 Unlimited number of slideshow in a single page or post with different sets of options like post type, category, effect, navigation type.
 Create slideshow with single or multiple images per slide, rotate your banner or client logo at sidebar; scroll your testimonial with custom link.
 
-<strong>Click here for <a target="_blank" href="http://wpcue.com/plugins/advanced-post-slider/template-one-demo/">demo</a></strong>
+> #### **Live Demos**
+
+> * [Template One](http://www.wpcue.com/wordpress-plugins/advanced-post-slider/template-one/)
+> * [Template Two](http://www.wpcue.com/wordpress-plugins/advanced-post-slider/template-two/)
+> * [Template Three](http://www.wpcue.com/wordpress-plugins/advanced-post-slider/template-three/)
 
 = Key Feature =
 
@@ -27,7 +31,7 @@ Create slideshow with single or multiple images per slide, rotate your banner or
 * Ability to control excerpt length for each slideshow
 * Cross browser compatibility
 
-Visit <a target="_blank" href="http://www.wpcue.com/plugins/advanced-post-slider/">www.wpcue.com/</a> for more
+Visit <a target="_blank" href="http://www.wpcue.com/">www.wpcue.com/</a> for more
 
 == Installation ==
 
@@ -47,7 +51,7 @@ Manual
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Check the "Adv. Slider" Tab created by this plugins for manage options
 
-Use shortcode [advps-slideshow optset="optset ID"] at admin panel post/page edit screen where optset ID is the id of the option set. You will get the id of optoin set at the top right corner of each option set from admin panel.
+You will get slideshow shortcode something like [advps-slideshow optset="1"] at very first section of every slideshow option set. Use it at admin panel post/page edit screen.
 
 Use WordPress function "do_shortcode" for use in template or theme PHP file.
 `<?php echo do_shortcode( '[advps-slideshow optset="1"]' ); ?>`
@@ -110,5 +114,9 @@ Dont have any FAQ for now.
 = 2.1.2 =
 * Site down problem for some user is resolved.
 
+= 2.1.3 =
+* Small change for image ALT attribute.
+* Small change in admin UI.
+
 == Upgrade Notice ==
-* Bug fix release for version 2. Upgrade highly recommended.
+* Few modification. Upgrade is recommended.

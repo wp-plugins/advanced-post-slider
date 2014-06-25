@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
-	Version: 2.1.2
+	Version: 2.1.3
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -483,7 +483,7 @@
 				if($advps_custom_thumb){
 					$thmb_image = wp_get_attachment_url( get_post_thumbnail_id());
 					$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop);
-					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="dff"/>';
+					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'"/>';
 				}
 				else
 				{
@@ -517,7 +517,7 @@
 				if($advps_custom_thumb){
 					$thmb_image = wp_get_attachment_url( get_post_thumbnail_id());
 					$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop);
-					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="dff"/>';
+					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'"/>';
 				}
 				else
 				{
@@ -543,7 +543,7 @@
 					if($advps_custom_thumb){
 						$thmb_image = wp_get_attachment_url( get_post_thumbnail_id());
 						$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop);
-						echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="dff"/>';
+						echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'"/>';
 					}
 					else
 					{
