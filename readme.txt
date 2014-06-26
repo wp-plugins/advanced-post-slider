@@ -4,7 +4,7 @@ Donate link:
 Tags: post slider, slider, slideshow, wordpress slideshow, best slideshow, best post slider, best slideshow plugin, images, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, image slider, sidebar slideshow, posts, post, image, image slideshow, responsive slideshow, responsive slider, best responsive slider, best carousel slider, carousel slider, ticker, responsive carousel slider, responsive carousel, showcase, news slider, thumbnail, thumbnail slider, featured thumbnail
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,6 +117,9 @@ Dont have any FAQ for now.
 = 2.1.3 =
 * Small change for image ALT attribute.
 * Small change in admin UI.
+
+= 2.1.4 =
+* Small change for Advanced post slider built-in image resizing functionality.
 
 == Upgrade Notice ==
 * Few modification. Upgrade is recommended.

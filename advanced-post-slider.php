@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
-	Version: 2.1.3
+	Version: 2.1.4
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -482,8 +482,8 @@
 				$advps_custom_thumb = $wpdb->get_results("select width,height,crop from ".$wpdb->prefix."advps_thumbnail where thumb_name = '".$container['advps_thumbnail']."'");
 				if($advps_custom_thumb){
 					$thmb_image = wp_get_attachment_url( get_post_thumbnail_id());
-					$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop);
-					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'"/>';
+					$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop,true,true);
+					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'" />';
 				}
 				else
 				{
@@ -493,7 +493,7 @@
 			elseif(isset($container['advps_default_image']) && $container['advps_default_image'] != '')
 			{
 		?>
-        		<img src="<?php echo $container['advps_default_image'];?>" class="wp-post-image" />
+        		<img src="<?php echo $container['advps_default_image'];?>" class="wp-post-image" alt="<?php the_title();?>" />
          <?php
 			}
 	  ?>
@@ -516,8 +516,8 @@
 				$advps_custom_thumb = $wpdb->get_results("select width,height,crop from ".$wpdb->prefix."advps_thumbnail where thumb_name = '".$container['advps_thumbnail']."'");
 				if($advps_custom_thumb){
 					$thmb_image = wp_get_attachment_url( get_post_thumbnail_id());
-					$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop);
-					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'"/>';
+					$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop,true,true);
+					echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'" />';
 				}
 				else
 				{
@@ -527,7 +527,7 @@
 			elseif(isset($container['advps_default_image']) && $container['advps_default_image'] != '')
 			{
 		?>
-        		 <img src="<?php echo $container['advps_default_image'];?>" class="wp-post-image" />
+        		 <img src="<?php echo $container['advps_default_image'];?>" class="wp-post-image" alt="<?php the_title();?>" />
         <?php
 			}
 	  ?>
@@ -542,8 +542,8 @@
 					$advps_custom_thumb = $wpdb->get_results("select width,height,crop from ".$wpdb->prefix."advps_thumbnail where thumb_name = '".$container['advps_thumbnail']."'");
 					if($advps_custom_thumb){
 						$thmb_image = wp_get_attachment_url( get_post_thumbnail_id());
-						$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop);
-						echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'"/>';
+						$advps_image = aq_resize( $thmb_image, $advps_custom_thumb[0]->width, $advps_custom_thumb[0]->height,$advps_custom_thumb[0]->crop,true,true);
+						echo '<img src="'.$advps_image.'" width="'.$advps_custom_thumb[0]->width.'" height="'.$advps_custom_thumb[0]->height.'" alt="'.get_the_title().'" />';
 					}
 					else
 					{
@@ -553,7 +553,7 @@
 				elseif(isset($container['advps_default_image']) && $container['advps_default_image'] != '')
 				{
 			?>
-        		 <img src="<?php echo $container['advps_default_image'];?>" class="wp-post-image" />
+        		 <img src="<?php echo $container['advps_default_image'];?>" class="wp-post-image" alt="<?php the_title();?>" />
         	<?php
 				}
 			?>
