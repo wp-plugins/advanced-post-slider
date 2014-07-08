@@ -1,5 +1,24 @@
 <?php
 if ( ! defined( 'ABSPATH' ) || ! current_user_can( 'manage_options' ) ) exit;
+?>
+<div class="advps-col-right">
+  <h2>Advanced post slider 2.2.0</h2>
+  <ul>
+    <li><a href="http://www.wpcue.com/wordpress-plugins/advanced-post-slider/" target="_blank">Plugin Homepage</a></li>
+    <li><a href="http://www.wpcue.com/support/forum/advanced-post-slider/" target="_blank">Help / Support</a></li>
+    <li><a href="http://www.wpcue.com/resources/advanced-post-slider-documentaion/" target="_blank">Getting Started</a></li>
+    <li><a href="http://www.wpcue.com/faq/" target="_blank">FAQ</a></li>
+  </ul>
+  <h3>Do you like this Plugin?</h3>
+  <p>I spend lots of free hours to develop, maintain and providing support to this plugin.  Any kind of participation will be highly appreciated and real inspiration for me to work more.</p>
+  <ul>
+  	<li>Write a small blog for Advanced post slider and give link to our site.</li>
+    <li>Share it to your social media.</li>
+    <li><a href="http://wordpress.org/support/view/plugin-reviews/advanced-post-slider" target="_blank">Give it a good rating and review</a></li>
+    <li><a href="http://wordpress.org/plugins/advanced-post-slider/" target="_blank">Vote that it work</a></li>
+  </ul>
+</div>
+<?php
 foreach( $res1 as $dset){ 
 	$plist = unserialize($dset->plist);
 	$query = unserialize($dset->query);
@@ -10,7 +29,7 @@ foreach( $res1 as $dset){
 	$navigation = unserialize($dset->navigation);
 ?>
 <div class="metabox-holder" style="margin-top:20px;">
-  <div class="postbox-container" style="width:72%">
+  <div class="postbox-container" style="width:100%">
     <div class="postbox closed">
       <div class="handlediv down" title="Click to toggle"> <br>
       </div>
@@ -41,7 +60,8 @@ foreach( $res1 as $dset){
                 <td><select name="advpssmethod<?php echo $dset->id?>" onchange="updateSm(this,<?php echo $dset->id;?>);">
                     <option value="plist" <?php if(get_option('advpssmethod'.$dset->id) == 'plist'){echo 'selected="selected"';}?>>Post list</option>
                     <option value="query" <?php if(get_option('advpssmethod'.$dset->id) == 'query'){echo 'selected="selected"';}?>>Query</option>
-                  </select><span id="smudtsts<?php echo $dset->id;?>" style="padding-left:10px; display:none;"><img src="<?php echo advps_url;?>/images/ajax-loader.gif" /></span></td>
+                  </select>
+                  <span id="smudtsts<?php echo $dset->id;?>" style="padding-left:10px; display:none;"><img src="<?php echo advps_url;?>/images/ajax-loader.gif" /></span></td>
               </tr>
             </table>
             <form method="post" onsubmit="return false" id="plist<?php echo $dset->id;?>">
@@ -555,9 +575,8 @@ foreach( $res1 as $dset){
               </tr>
               <tr>
                 <th scope="row">Thumbnail Width</th>
-                <td>
-                  <input type="text" name="advps_pthumb_width" value="<?php echo $navigation['advps_pthumb_width'];?>" style="width:50px;" onkeypress="return onlyNum(event);" />&nbsp;%
-                 <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For pager type thumbnail. ]</span></td>
+                <td><input type="text" name="advps_pthumb_width" value="<?php echo $navigation['advps_pthumb_width'];?>" style="width:50px;" onkeypress="return onlyNum(event);" />
+                  &nbsp;% <span style="padding-left:10px; font-size:10px; font-style:italic;">[ N.B. For pager type thumbnail. ]</span></td>
               </tr>
               <tr>
                 <th scope="row">Pager align</th>
@@ -626,7 +645,7 @@ foreach( $res1 as $dset){
 }
 $tcount = $wpdb->get_results("SHOW TABLE STATUS WHERE name = '".$wpdb->prefix."advps_optionset'");
 ?>
-<div style="position:relative; float:left; width:100%">
+<div style="position:relative; float:left; width:72%">
   <form method="post">
     <input type="hidden" name="template" value="one" />
     <input type="hidden" name="nextoptid" value="<?php echo $tcount[0]->Auto_increment;?>" />

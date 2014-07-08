@@ -1,6 +1,24 @@
 <?php
 if ( ! defined( 'ABSPATH' ) || ! current_user_can( 'manage_options' ) ) exit;
-
+?>
+<div class="advps-col-right">
+  <h2>Advanced post slider 2.2.0</h2>
+  <ul>
+    <li><a href="http://www.wpcue.com/wordpress-plugins/advanced-post-slider/" target="_blank">Plugin Homepage</a></li>
+    <li><a href="http://www.wpcue.com/support/forum/advanced-post-slider/" target="_blank">Help / Support</a></li>
+    <li><a href="http://www.wpcue.com/resources/advanced-post-slider-documentaion/" target="_blank">Getting Started</a></li>
+    <li><a href="http://www.wpcue.com/faq/" target="_blank">FAQ</a></li>
+  </ul>
+  <h3>Do you like this Plugin?</h3>
+  <p>I spend lots of free hours to develop, maintain and providing support to this plugin.  Any kind of participation will be highly appreciated and real inspiration for me to work more.</p>
+  <ul>
+  	<li>Write a small blog for Advanced post slider and give link to our site.</li>
+    <li>Share it to your social media.</li>
+    <li><a href="http://wordpress.org/support/view/plugin-reviews/advanced-post-slider" target="_blank">Give it a good rating and review</a></li>
+    <li><a href="http://wordpress.org/plugins/advanced-post-slider/" target="_blank">Vote that it work</a></li>
+  </ul>
+</div>
+<?php
 foreach( $res3 as $dset){ 
 	$plist = unserialize($dset->plist);
 	$query = unserialize($dset->query);
@@ -11,7 +29,7 @@ foreach( $res3 as $dset){
 	$navigation = unserialize($dset->navigation);
 ?>
 <div class="metabox-holder" style="margin-top:20px;">
-  <div class="postbox-container" style="width:72%">
+  <div class="postbox-container" style="width:100%">
     <div class="postbox closed">
       <div class="handlediv down" title="Click to toggle"> <br>
       </div>
