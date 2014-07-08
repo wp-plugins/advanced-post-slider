@@ -2,8 +2,8 @@
 /*
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
-	Description: Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
-	Version: 2.1.4
+	Description: A multipurpose responsive slideshow plugin powered with three built-in design template, lots of easy customizable options and many more to explore.
+	Version: 2.2.0
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -62,12 +62,18 @@
 	/* ---------------------------------------------------------------------------------------*/
 	
 	register_activation_hook(WP_PLUGIN_DIR.'/advanced-post-slider/advanced-post-slider.php','set_advps_options');
-	register_deactivation_hook(WP_PLUGIN_DIR.'/advanced-post-slider/advanced-post-slider.php','unset_advps_options');
+	register_deactivation_hook(WP_PLUGIN_DIR.'/advanced-post-slider/advanced-post-slider.php','unset_advps_options');	
 	
-	add_action( 'plugins_loaded', 'set_advps_options' );
 	
 	function unset_advps_options(){
 	}
+	
+	function advps_update_db(){
+		if(get_option('advps-db-version') < 2){
+			set_advps_options();
+		}
+	}
+	add_action( 'plugins_loaded', 'advps_update_db' );
 	/* ---------------------------------------------------------------------------------------*/
 	function advps_image_sizes(){
 	  if ( function_exists( 'add_image_size' ) ) { 
@@ -238,7 +244,7 @@
 		$current = $post->ID;
 		
 		if(is_array($atts) && array_key_exists('optset',$atts)){	
-			$q1 = "select * from ".$wpdb->prefix."advps_optionset where id = ".$atts['optset'];
+			$q1 = "select * from ".$wpdb->prefix."advps_optionset where id = ".intval($atts['optset']);
 			$res1 = $wpdb->get_results($q1);
 			if($res1){
 				$plist = unserialize($res1[0]->plist);
@@ -319,8 +325,9 @@
 		
 		ob_start();
 	?>
+<!-- This slideshow output is generated with Advanced post slider a multipurpose responsive WordPress slideshow plugin version 2.2.0 - http://www.wpcue.com/wordpress-plugins/advanced-post-slider/ -->
 <style>
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-viewport {
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-viewport {
 	<?php if($container['advps_remove_shd'] == 'no'):?>
 	-moz-box-shadow: <?php echo $container['advps_bxshad1'].'px '.$container['advps_bxshad2'].'px '.$container['advps_bxshad3'].'px '.$container['advps_bxshadcolor'];?>;
 	-webkit-box-shadow: <?php echo $container['advps_bxshad1'].'px '.$container['advps_bxshad2'].'px '.$container['advps_bxshad3'].'px '.$container['advps_bxshadcolor'];?>;
@@ -330,28 +337,29 @@
 	<?php endif;?>
 	background:<?php echo $container['advps_bgcolor'];?>;
 }
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-pager{
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager{
 	text-align: <?php echo $navigation['advps_pager_align'];?>;
 	<?php if($navigation['advps_pager_align'] == 'right'){echo 'padding-right:5px';}elseif($navigation['advps_pager_align'] == 'left'){echo 'padding-left:5px';}?>;
 }
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-pager
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager
 {
 	bottom:<?php echo $navigation['advps_pager_bottom'];?>px;
+	z-index:999;
 }
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-controls-auto
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-controls-auto
 {
 	bottom:<?php echo $navigation['advps_ppause_bottom'];?>px;
 }
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
 	text-align: <?php echo $navigation['advps_pager_align'];?>;
 }
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-controls-auto {
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-controls-auto {
 	z-index:99999;
 	<?php if($navigation['advps_ppause_align'] == 'left'){echo 'left:5px;width:35px;';}elseif($navigation['advps_ppause_align'] == 'right'){echo 'right:0px;width:35px;';}else{echo 'text-align:center;width:100%;';}?>
 }
 
 <?php if($navigation['advps_exclude_pager'] == 'no' && (isset($navigation['advps_pager_type']) && $navigation['advps_pager_type'] == 'number')):?>
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a {
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a {
 	margin: 2px 2px 2px 0;
 	padding:3px 8px 3px 8px !important;
 	text-decoration:none;
@@ -373,7 +381,7 @@
 	-webkit-border-radius:2px;
 	border-radius:2px;
 }
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a:hover, #container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a.active{
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a:hover, #advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a.active{
 	color:#000000;
 	text-shadow: 0 1px 0 #FFFFFF;
 	background-color:#FFFFFF;
@@ -384,7 +392,7 @@
 	background-image: -o-linear-gradient(top, #FFFFFF 0%, #E0E0E0 100%);
 }
 <?php elseif($navigation['advps_exclude_pager'] == 'no' && (!isset($navigation['advps_pager_type']) || ($navigation['advps_pager_type'] == 'bullet' || ($slider['advps_slider_type'] != 'standard' && $navigation['advps_pager_type']=='thumb')))):?>
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a {
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a {
 	background: #666;
 	text-indent: -9999px;
 	display: block;
@@ -397,14 +405,14 @@
 	border-radius: 5px;
 	text-align:left;
 }
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a:hover,
-#container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a.active {
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a:hover,
+#advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-pager.bx-default-pager a.active {
 	background: #000;
 }
 <?php endif;?>
 
 /* thumbnail pager*/
-#container<?php echo $sldshowID;?> #bx-pager
+#advps_container<?php echo $sldshowID;?> #bx-pager
 {
 	width:100%;
 	position:absolute;
@@ -412,12 +420,12 @@
     text-align: <?php echo $navigation['advps_pager_align'];?>;
 	z-index: 9999;
 }
-#container<?php echo $sldshowID;?> #bx-pager a img
+#advps_container<?php echo $sldshowID;?> #bx-pager a img
 {
 	border: 1px solid #CCCCCC;
     padding: 3px;
 }
-#container<?php echo $sldshowID;?> #bx-pager a:hover img, #container<?php echo $sldshowID;?> #bx-pager a.active img
+#advps_container<?php echo $sldshowID;?> #bx-pager a:hover img, #advps_container<?php echo $sldshowID;?> #bx-pager a.active img
 {
 	border: 1px solid #666666;
 }
@@ -470,7 +478,7 @@
 			});
 		});
 	</script>
-<div id="container<?php echo $sldshowID;?>" class="advps-slide-container" style="max-width:<?php echo $container['advps_sld_width'];?>px;">
+<div id="advps_container<?php echo $sldshowID;?>" class="advps-slide-container" style="max-width:<?php echo $container['advps_sld_width'];?>px;">
  
   <div id="<?php echo "advpsslideshow_".$sldshowID;?>">
     <?php $count = 1;$the_query = new WP_Query($query_arg); while ($the_query->have_posts()) : $the_query->the_post();if($template == 'one'):
@@ -599,6 +607,7 @@
    </div>
    <?php }?>
 </div><!-- end advps-slide-container -->
+<!-- / Advanced post slider a multipurpose responsive slideshow plugin -->
 <?php   
 		$advps_res = ob_get_contents();
 		ob_end_clean();

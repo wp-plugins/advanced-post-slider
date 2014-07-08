@@ -146,8 +146,23 @@
     });
 </script>
 <style>
-.form-table th
-{
+.metabox-holder {
+	width:72%;
+}
+.advps-col-right {
+	width:22%;
+	float:right;
+	position:relative;
+	background-color:#fff;
+	margin-top:30px;
+	padding:10px;
+}
+.advps-col-right li {
+	list-style:inside;
+	color:#0074a2;
+	text-decoration:underline;
+}
+.form-table th {
 	font-size:12px;
 }
 fieldset {
@@ -155,10 +170,9 @@ fieldset {
 	margin-bottom:20px;
 	padding:0px 5px 10px 20px;
 }
-.advps-legend
-{
+.advps-legend {
 	background-color:#6E6E6E;
-	background-image:url(<?php echo advps_url?>images/up.png);
+ background-image:url(<?php echo advps_url?>images/up.png);
 	background-repeat:no-repeat;
 	background-position: 96px 6px;
 	color:#FFF;
@@ -169,54 +183,46 @@ fieldset {
 	cursor:pointer;
 	border-radius:4px;
 }
-.postbox .inside{
+.postbox .inside {
 	position:relative;
 	margin: 15px 25px;
 }
-.wp-admin select
-{
+.wp-admin select {
 	font-size:12px;
 }
 .wp-admin select[multiple], #wpcontent select[multiple] {
 	height: auto;
 }
-.form-table, .form-table td, .form-table th, .form-table td p, .form-wrap label
-{
+.form-table, .form-table td, .form-table th, .form-table td p, .form-wrap label {
 	font-size:12px;
 }
-.advps-optset-label
-{
+.advps-optset-label {
 	width:200px;
 }
-.ajx-sts
-{
+.ajx-sts {
 	color: #298A08;
-    font-size: 12px;
-    font-style: italic;
-    font-weight: bold;
-    padding-left: 20px;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bold;
+	padding-left: 20px;
 }
-.postbox .down
-{
-	background-image:url(<?php echo advps_url?>images/downb.png);
+.postbox .down {
+ background-image:url(<?php echo advps_url?>images/downb.png);
 	background-repeat:no-repeat;
 	background-position: 4px 10px;
 }
-.postbox .up
-{
-	background-image:url(<?php echo advps_url?>images/upb.png);
+.postbox .up {
+ background-image:url(<?php echo advps_url?>images/upb.png);
 	background-repeat:no-repeat;
 	background-position: 4px 10px;
 }
-.advps-highlight
-{
+.advps-highlight {
 	border: 1px solid #7AD03A !important;
 }
-.advps-hide{
+.advps-hide {
 	display:none;
 }
-.advps-fade
-{
+.advps-fade {
 	color:#D1D0CE;
 }
 </style>
@@ -226,8 +232,7 @@ fieldset {
     <p><?php echo $stsMgs;?></p>
   </div>
   <?php }?>
-  <h2 class="nav-tab-wrapper"> <a href="?page=advps-slideshow&tab=one" class="nav-tab <?php if($currTab == 'one'){echo 'nav-tab-active';}?>" title="Thumbnail and overlaid title excerpt">Template One</a> <a href="?page=advps-slideshow&tab=two" class="nav-tab <?php if($currTab == 'two'){echo 'nav-tab-active';}?>" title="Thumbnail only">Template Two</a> <a href="?page=advps-slideshow&tab=three" class="nav-tab <?php if($currTab == 'three'){echo 'nav-tab-active';}?>" title="Thumbnail, title, excerpt or simply full content">Template Three</a><a href="?page=advps-slideshow&tab=thumb" class="nav-tab <?php if($currTab == 'thumb'){echo 'nav-tab-active';}?>" title="Create or manage thumbnail size">Thumbnails</a>
-  </h2>
+  <h2 class="nav-tab-wrapper"> <a href="?page=advps-slideshow&tab=one" class="nav-tab <?php if($currTab == 'one'){echo 'nav-tab-active';}?>" title="Thumbnail and overlaid title excerpt">Template One</a> <a href="?page=advps-slideshow&tab=two" class="nav-tab <?php if($currTab == 'two'){echo 'nav-tab-active';}?>" title="Thumbnail only">Template Two</a> <a href="?page=advps-slideshow&tab=three" class="nav-tab <?php if($currTab == 'three'){echo 'nav-tab-active';}?>" title="Thumbnail, title, excerpt or simply full content">Template Three</a><a href="?page=advps-slideshow&tab=thumb" class="nav-tab <?php if($currTab == 'thumb'){echo 'nav-tab-active';}?>" title="Create or manage thumbnail size">Thumbnails</a> </h2>
   <?php if($currTab == 'one'){
 	  		require 'templates/template-one.php';
 		}elseif($currTab == 'two'){
@@ -235,8 +240,25 @@ fieldset {
 		}elseif($currTab == 'three'){
 			require 'templates/template-three.php';
 		}elseif($currTab == 'thumb'){?>
+  <div class="advps-col-right">
+    <h2>Advanced post slider 2.2.0</h2>
+    <ul>
+      <li><a href="http://www.wpcue.com/wordpress-plugins/advanced-post-slider/" target="_blank">Plugin Homepage</a></li>
+      <li><a href="http://www.wpcue.com/support/forum/advanced-post-slider/" target="_blank">Help / Support</a></li>
+      <li><a href="http://www.wpcue.com/resources/advanced-post-slider-documentaion/" target="_blank">Getting Started</a></li>
+      <li><a href="http://www.wpcue.com/faq/" target="_blank">FAQ</a></li>
+    </ul>
+    <h3>Do you like this Plugin?</h3>
+    <p>I spend lots of free hours to develop, maintain and providing support to this plugin.  Any kind of participation will be highly appreciated and real inspiration for me to work more.</p>
+    <ul>
+      <li>Write a small blog for Advanced post slider and give link to our site.</li>
+      <li>Share it to your social media.</li>
+      <li><a href="http://wordpress.org/support/view/plugin-reviews/advanced-post-slider" target="_blank">Give it a good rating and review</a></li>
+      <li><a href="http://wordpress.org/plugins/advanced-post-slider/" target="_blank">Vote that it work</a></li>
+    </ul>
+  </div>
   <div class="metabox-holder" style="margin-top:20px;">
-    <div class="postbox-container" style="width:65%">
+    <div class="postbox-container" style="width:100%">
       <div class="postbox" style="margin-bottom:15px;">
         <h3><strong>Thumbnail settings</strong></h3>
         <table class="form-table" style="margin-left:12px;">

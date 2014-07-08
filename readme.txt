@@ -4,11 +4,11 @@ Donate link:
 Tags: post slider, slider, slideshow, wordpress slideshow, best slideshow, best post slider, best slideshow plugin, images, logo scroller, testimonial scroller, banner rotator, recent post slider, bxslider, image slider, sidebar slideshow, posts, post, image, image slideshow, responsive slideshow, responsive slider, best responsive slider, best carousel slider, carousel slider, ticker, responsive carousel slider, responsive carousel, showcase, news slider, thumbnail, thumbnail slider, featured thumbnail
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 2.1.4
+Stable tag: 2.2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Responsive slideshow plugin powered with three built-in templates, lots of easy customizable options and many more to explore.
+A multipurpose responsive slideshow plugin powered with three built-in design template, lots of easy customizable options and many more to explore.
 
 == Description ==
 
@@ -24,14 +24,16 @@ Create slideshow with single or multiple images per slide, rotate your banner or
 = Key Feature =
 
 * You can create multiple slideshow with different options at single page or post.
+* Create three different type (Standard, Carousel & Ticker) of slideshow with single plugin.
 * Three built-in design format and each have a predefined optionset.
+* Thumbnail pagination.
 * You can customize this in many ways withour changing code.
 * Supports post,custom post type and even page content
 * Easy option for adjusting slide container width, height, background color, border and box-shadow. You can easily turn on/off border and box-shadow
 * Ability to control excerpt length for each slideshow
 * Cross browser compatibility
 
-Visit <a target="_blank" href="http://www.wpcue.com/">www.wpcue.com/</a> for more
+Visit [Wpcue](http://www.wpcue.com/) for more
 
 == Installation ==
 
@@ -121,5 +123,10 @@ Dont have any FAQ for now.
 = 2.1.4 =
 * Small change for Advanced post slider built-in image resizing functionality.
 
+= 2.2.0 =
+* Database query optimization.
+* Pager z-index issue resolved.
+* More unique id for container.
+
 == Upgrade Notice ==
-* Few modification. Upgrade is recommended.
+* Upgrade is highly recommended.
