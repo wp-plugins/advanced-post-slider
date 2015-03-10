@@ -72,6 +72,9 @@
 		if(get_option('advps-db-version') < 2){
 			set_advps_options();
 		}
+		if(get_option('advps-db-version') && !get_option('advps-update-notification')){
+			update_option('advps-update-notification','show');
+		}
 	}
 	add_action( 'plugins_loaded', 'advps_update_db' );
 	/* ---------------------------------------------------------------------------------------*/

@@ -161,9 +161,9 @@
 		$db_version = get_option('advps-db-version');
 		$advps_opt_table = $wpdb->prefix.'advps_optionset';
 		
-		if($db_version){
+		/*if($db_version){
 			update_option('advps-update-notification','show');
-		}
+		}*/
 		
 		if(!get_option('advpssmethod1')){
 			add_option('advpssmethod1','plist');
