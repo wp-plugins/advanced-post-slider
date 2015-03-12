@@ -340,39 +340,39 @@ foreach( $res3 as $dset){
                 <th scope="row">Padding</th>
                 <td><input type="text" name="advps_contpad1" value="<?php echo $container['advps_contpad1'];?>" style="width:40px; height:25px;" />
                   <select name="advps_padu1" style="vertical-align:top; width:46px; height:25px;">
-                    <option value="vw" <?php if(isset($content['advps_padu1']) && $content['advps_padu1'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
-                    <option value="vh" <?php if(isset($content['advps_padu1']) && $content['advps_padu1'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
-                    <option value="%" <?php if(isset($content['advps_padu1']) && $content['advps_padu1'] == '%'){echo 'selected="selected"';}?>>%</option>
-                    <option value="em" <?php if(isset($content['advps_padu1']) && $content['advps_padu1'] == 'em'){echo 'selected="selected"';}?>>em</option>
-                    <option value="px" <?php if(isset($content['advps_padu1']) && $content['advps_padu1'] == 'px'){echo 'selected="selected"';}?>>px</option>
-                    <option value="pt" <?php if(isset($content['advps_padu1']) && $content['advps_padu1'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
+                    <option value="vw" <?php if(isset($container['advps_padu1']) && $container['advps_padu1'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
+                    <option value="vh" <?php if(isset($container['advps_padu1']) && $container['advps_padu1'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
+                    <option value="%" <?php if(isset($container['advps_padu1']) && $container['advps_padu1'] == '%'){echo 'selected="selected"';}?>>%</option>
+                    <option value="em" <?php if(isset($container['advps_padu1']) && $container['advps_padu1'] == 'em'){echo 'selected="selected"';}?>>em</option>
+                    <option value="px" <?php if(isset($container['advps_padu1']) && $container['advps_padu1'] == 'px'){echo 'selected="selected"';}?>>px</option>
+                    <option value="pt" <?php if(isset($container['advps_padu1']) && $content['advps_padu1'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
                   </select>
                   <input type="text" name="advps_contpad2" value="<?php echo $container['advps_contpad2'];?>" style="width:40px; height:25px;" />
                   <select name="advps_padu2" style="vertical-align:top;width:46px; height:25px;">
-                    <option value="vw" <?php if(isset($content['advps_padu2']) && $content['advps_padu2'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
-                    <option value="vh" <?php if(isset($content['advps_padu2']) && $content['advps_padu2'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
-                    <option value="%" <?php if(isset($content['advps_padu2']) && $content['advps_padu2'] == '%'){echo 'selected="selected"';}?>>%</option>
-                    <option value="em" <?php if(isset($content['advps_padu2']) && $content['advps_padu2'] == 'em'){echo 'selected="selected"';}?>>em</option>
-                    <option value="px" <?php if(isset($content['advps_padu2']) && $content['advps_padu2'] == 'px'){echo 'selected="selected"';}?>>px</option>
-                    <option value="pt" <?php if(isset($content['advps_padu2']) && $content['advps_padu2'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
+                    <option value="vw" <?php if(isset($container['advps_padu2']) && $container['advps_padu2'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
+                    <option value="vh" <?php if(isset($container['advps_padu2']) && $container['advps_padu2'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
+                    <option value="%" <?php if(isset($container['advps_padu2']) && $container['advps_padu2'] == '%'){echo 'selected="selected"';}?>>%</option>
+                    <option value="em" <?php if(isset($container['advps_padu2']) && $container['advps_padu2'] == 'em'){echo 'selected="selected"';}?>>em</option>
+                    <option value="px" <?php if(isset($container['advps_padu2']) && $container['advps_padu2'] == 'px'){echo 'selected="selected"';}?>>px</option>
+                    <option value="pt" <?php if(isset($container['advps_padu2']) && $container['advps_padu2'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
                   </select>
                   <input type="text" name="advps_contpad3" value="<?php echo $container['advps_contpad3'];?>" style="width:40px; height:25px;" />
                   <select name="advps_padu3" style="vertical-align:top;width:46px; height:25px;">
-                    <option value="vw" <?php if(isset($content['advps_padu3']) && $content['advps_padu3'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
-                    <option value="vh" <?php if(isset($content['advps_padu3']) && $content['advps_padu3'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
-                    <option value="%" <?php if(isset($content['advps_padu3']) && $content['advps_padu3'] == '%'){echo 'selected="selected"';}?>>%</option>
-                    <option value="em" <?php if(isset($content['advps_padu3']) && $content['advps_padu3'] == 'em'){echo 'selected="selected"';}?>>em</option>
-                    <option value="px" <?php if(isset($content['advps_padu3']) && $content['advps_padu3'] == 'px'){echo 'selected="selected"';}?>>px</option>
-                    <option value="pt" <?php if(isset($content['advps_padu3']) && $content['advps_padu3'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
+                    <option value="vw" <?php if(isset($container['advps_padu3']) && $container['advps_padu3'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
+                    <option value="vh" <?php if(isset($container['advps_padu3']) && $container['advps_padu3'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
+                    <option value="%" <?php if(isset($container['advps_padu3']) && $container['advps_padu3'] == '%'){echo 'selected="selected"';}?>>%</option>
+                    <option value="em" <?php if(isset($container['advps_padu3']) && $container['advps_padu3'] == 'em'){echo 'selected="selected"';}?>>em</option>
+                    <option value="px" <?php if(isset($container['advps_padu3']) && $container['advps_padu3'] == 'px'){echo 'selected="selected"';}?>>px</option>
+                    <option value="pt" <?php if(isset($container['advps_padu3']) && $container['advps_padu3'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
                   </select>
                   <input type="text" name="advps_contpad4" value="<?php echo $container['advps_contpad4'];?>" style="width:40px; height:25px;" />
                   <select name="advps_padu4" style="vertical-align:top;width:46px; height:25px;">
-                    <option value="vw" <?php if(isset($content['advps_padu4']) && $content['advps_padu4'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
-                    <option value="vh" <?php if(isset($content['advps_padu4']) && $content['advps_padu4'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
-                    <option value="%" <?php if(isset($content['advps_padu4']) && $content['advps_padu4'] == '%'){echo 'selected="selected"';}?>>%</option>
-                    <option value="em" <?php if(isset($content['advps_padu4']) && $content['advps_padu4'] == 'em'){echo 'selected="selected"';}?>>em</option>
-                    <option value="px" <?php if(isset($content['advps_padu4']) && $content['advps_padu4'] == 'px'){echo 'selected="selected"';}?>>px</option>
-                    <option value="pt" <?php if(isset($content['advps_padu4']) && $content['advps_padu4'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
+                    <option value="vw" <?php if(isset($container['advps_padu4']) && $container['advps_padu4'] == 'vw'){echo 'selected="selected"';}?>>vw</option>
+                    <option value="vh" <?php if(isset($container['advps_padu4']) && $container['advps_padu4'] == 'vh'){echo 'selected="selected"';}?>>vh</option>
+                    <option value="%" <?php if(isset($container['advps_padu4']) && $container['advps_padu4'] == '%'){echo 'selected="selected"';}?>>%</option>
+                    <option value="em" <?php if(isset($container['advps_padu4']) && $container['advps_padu4'] == 'em'){echo 'selected="selected"';}?>>em</option>
+                    <option value="px" <?php if(isset($container['advps_padu4']) && $container['advps_padu4'] == 'px'){echo 'selected="selected"';}?>>px</option>
+                    <option value="pt" <?php if(isset($container['advps_padu4']) && $container['advps_padu4'] == 'pt'){echo 'selected="selected"';}?>>pt</option>
                   </select></td>
               </tr>
               <tr>
