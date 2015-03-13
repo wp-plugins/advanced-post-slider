@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) || ! current_user_can( 'manage_options' ) ) exit;
 ?>
 
 <div class="advps-col-right">
-  <h2>Advanced post slider 2.3.0</h2>
+  <h2>Advanced post slider 2.3.2</h2>
   <ul>
     <li><a href="http://www.wpcue.com/wordpress-plugins/advanced-post-slider/" target="_blank">Plugin Homepage</a></li>
     <li><a href="http://www.wpcue.com/support/forum/advanced-post-slider/" target="_blank">Help / Support</a></li>
@@ -30,7 +30,7 @@ foreach( $res1 as $dset){
 	$content = unserialize($dset->content);
 	$navigation = unserialize($dset->navigation);
 	
-	if( !$content['advps_link_rel'] ) $content['advps_link_rel'] = 'none';
+	if( !isset($content['advps_link_rel'] )) $content['advps_link_rel'] = 'none';
 ?>
 <div class="metabox-holder" style="margin-top:20px;">
   <div class="postbox-container" style="width:100%">
@@ -332,8 +332,8 @@ foreach( $res1 as $dset){
               <tr>
                 <th scope="row">Center whole slideshow</th>
                 <td><select name="advps_centering">
-                	<option value="no" <?php if($container['advps_centering'] && $container['advps_centering'] == 'no'){echo 'selected="selected"';}?>>No</option>
-                    <option value="yes" <?php if($container['advps_centering'] && $container['advps_centering'] == 'yes'){echo 'selected="selected"';}?>>Yes</option>
+                	<option value="no" <?php if(isset($container['advps_centering']) && $container['advps_centering'] == 'no'){echo 'selected="selected"';}?>>No</option>
+                    <option value="yes" <?php if(isset($container['advps_centering']) && $container['advps_centering'] == 'yes'){echo 'selected="selected"';}?>>Yes</option>
                   </select></td>
               </tr>
               <tr>

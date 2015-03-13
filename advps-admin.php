@@ -248,7 +248,7 @@ fieldset {
 <div class="wrap">
   <?php if(get_option('advps-update-notification') && get_option('advps-update-notification') == 'show'){?>
   <div id="message" class="updated below-h2">
-    <p>Advanced post slider is updated. <span style="margin:0 10px;"><input class="button" type="button" onclick="document.location.href='http://www.wpcue.com/advanced-post-slider-2-3-0/';" value="Check what's new in version 2.3.0"></span>
+    <p>Advanced post slider is updated. <span style="margin:0 10px;"><input class="button" type="button" onclick="document.location.href='http://www.wpcue.com/advanced-post-slider-2-3-0/';" value="Check what's new in version 2.3.2"></span>
     <input class="button" type="button" onclick="document.location.href='admin.php?page=advps-slideshow&hide=1';" value="Hide this message">
     </p>
   </div>
