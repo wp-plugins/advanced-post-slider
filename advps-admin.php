@@ -248,7 +248,7 @@ fieldset {
 <div class="wrap">
   <?php if(get_option('advps-update-notification') && get_option('advps-update-notification') == 'show'){?>
   <div id="message" class="updated below-h2">
-    <p>Advanced post slider is updated. <span style="margin:0 10px;"><input class="button" type="button" onclick="document.location.href='http://www.wpcue.com/advanced-post-slider-2-3-0/';" value="Check what's new in version 2.3.2"></span>
+    <p>Advanced post slider is updated. <span style="margin:0 10px;"><input class="button" type="button" onclick="document.location.href='http://www.wpcue.com/advanced-post-slider-2-3-0/';" value="Check what's new in version 2.3"></span>
     <input class="button" type="button" onclick="document.location.href='admin.php?page=advps-slideshow&hide=1';" value="Hide this message">
     </p>
   </div>
@@ -267,7 +267,7 @@ fieldset {
 			require 'templates/template-three.php';
 		}elseif($currTab == 'thumb'){?>
   <div class="advps-col-right">
-    <h2>Advanced post slider 2.3.0</h2>
+    <h2>Advanced post slider <?php echo get_option('advps-curr-version');?></h2>
     <ul>
       <li><a href="http://www.wpcue.com/wordpress-plugins/advanced-post-slider/" target="_blank">Plugin Homepage</a></li>
       <li><a href="http://www.wpcue.com/support/forum/advanced-post-slider/" target="_blank">Help / Support</a></li>
@@ -275,7 +275,7 @@ fieldset {
       <li><a href="http://www.wpcue.com/faq/" target="_blank">FAQ</a></li>
     </ul>
     <h3>Do you like this Plugin?</h3>
-    <p>I spend lots of free hours to develop, maintain and providing support to this plugin.  Any kind of participation will be highly appreciated and real inspiration for me to work more.</p>
+    <p>We spend lots of hours to develop, maintain and providing support to this plugin.  Any kind of participation will be highly appreciated and real inspiration for us to work more.</p>
     <ul>
       <li>Write a small blog for Advanced post slider and give link to our site.</li>
       <li>Share it to your social media.</li>

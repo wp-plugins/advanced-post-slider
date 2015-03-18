@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) || ! current_user_can( 'manage_options' ) ) exit;
 ?>
 <div class="advps-col-right">
-  <h2>Advanced post slider 2.3.2</h2>
+  <h2>Advanced post slider <?php echo get_option('advps-curr-version');?></h2>
   <ul>
     <li><a href="http://www.wpcue.com/wordpress-plugins/advanced-post-slider/" target="_blank">Plugin Homepage</a></li>
     <li><a href="http://www.wpcue.com/support/forum/advanced-post-slider/" target="_blank">Help / Support</a></li>
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) || ! current_user_can( 'manage_options' ) ) exit;
     <li><a href="http://www.wpcue.com/faq/" target="_blank">FAQ</a></li>
   </ul>
   <h3>Do you like this Plugin?</h3>
-  <p>I spend lots of free hours to develop, maintain and providing support to this plugin.  Any kind of participation will be highly appreciated and real inspiration for me to work more.</p>
+  <p>We spend lots of hours to develop, maintain and providing support to this plugin.  Any kind of participation will be highly appreciated and real inspiration for us to work more.</p>
   <ul>
   	<li>Write a small blog for Advanced post slider and give link to our site.</li>
     <li>Share it to your social media.</li>
@@ -536,7 +536,7 @@ foreach( $res2 as $dset){
 }
 $tcount = $wpdb->get_results("SHOW TABLE STATUS WHERE name = '".$wpdb->prefix."advps_optionset'");
 ?>
-<div style="position:relative; float:left; width:100%">
+<div style="position:relative; float:left; width:72%">
   <form method="post">
     <input type="hidden" name="nextoptid" value="<?php echo $tcount[0]->Auto_increment;?>" />
     <input type="hidden" name="template" value="two" />
