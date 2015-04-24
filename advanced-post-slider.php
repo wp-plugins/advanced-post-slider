@@ -3,7 +3,7 @@
 	Plugin Name: Advanced post slider
 	Plugin URI: www.wpcue.com
 	Description: A multipurpose responsive slideshow plugin powered with three built-in design template, lots of easy customizable options and many more to explore.
-	Version: 2.3.3
+	Version: 2.3.4
 	Author: digontoahsan
 	Author URI: www.wpcue.com
 	License: GPL2
@@ -75,7 +75,7 @@
 		if(get_option('advps-db-version') && !get_option('advps-update-notification')){
 			update_option('advps-update-notification','show');
 		}
-		update_option('advps-curr-version','2.3.3');
+		update_option('advps-curr-version','2.3.4');
 	}
 	add_action( 'plugins_loaded', 'advps_update_db' );
 	/* ---------------------------------------------------------------------------------------*/
@@ -329,7 +329,7 @@
 		
 		ob_start();
 	?>
-<!-- This slideshow output is generated with Advanced post slider a multipurpose responsive WordPress slideshow plugin version 2.2.0 - http://www.wpcue.com/wordpress-plugins/advanced-post-slider/ -->
+<!-- This slideshow output is generated with Advanced post slider a multipurpose responsive WordPress slideshow plugin - http://www.wpcue.com/wordpress-plugins/advanced-post-slider/ -->
 <style>
 #advps_container<?php echo $sldshowID;?> .bx-wrapper .bx-viewport {
 	<?php if($container['advps_remove_shd'] == 'no'):?>
@@ -553,7 +553,7 @@
 			});
 		});
 	</script>
-<div id="advps_container<?php echo $sldshowID;?>" class="advps-slide-container" style="max-width:<?php echo $container['advps_sld_width'];?>px;<?php if(isset($container['advps_centering']) && $container['advps_centering'] == 'yes'){echo 'margin:auto;';}?>">
+<div id="advps_container<?php echo $sldshowID;?>" class="advps-slide-container" style="overflow:hidden;max-width:<?php echo $container['advps_sld_width'];?>px;<?php if(isset($container['advps_centering']) && $container['advps_centering'] == 'yes'){echo 'margin:auto;';}?>">
  
   <div id="<?php echo "advpsslideshow_".$sldshowID;?>">
     <?php $count = 1;$the_query = new WP_Query($query_arg); while ($the_query->have_posts()) : $the_query->the_post();if($template == 'one'):
